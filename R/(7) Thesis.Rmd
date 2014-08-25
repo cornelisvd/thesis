@@ -1,0 +1,20 @@
+---
+title: "Thesis"
+author: "KeesvS"
+date: "06/19/2014"
+output: pdf_document
+---
+
+http://www.davisnet.com/weather/products/weather_product.asp?pnum=06574
+
+```{r}
+summary(cars)
+```
+
+You can also embed plots, for example:
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
