@@ -1,11 +1,13 @@
 ##------------------------------Quality control-------------------------------##
-## Function to create a single zoo-object from the *.csv files of micro-sensors.
-## This is the first step and requires the setting of the correct time - format,
-## the time-unit can also be changed from 'hours' to other options (eg. 'mins').
-## Main output of this code will be a corrected time-series of all used sensors.
+## This R-script can be used to automatically check the data to see whether this
+## fits within the physical boundaries for the region, but the ID of sensors can
+## also be removed manually from the lists in case the automatic control doesn't
+## remove all 'bad'sensors. Automatic quality control will be implemented later.
 ##--------------------------------v.26-08-14----------------------------------##
 
-# Remove sensors that do not meet quality criteria
+# Automatically remove sensors that do not meet quality criteria
+
+# Manually remove sensors that do not meet quality criteria
     clean.sensors <- function (temp_sensors = c("ID003", 
                                                 "ID013"),
                                humd_sensors = c("ID003",
