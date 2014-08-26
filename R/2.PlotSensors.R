@@ -6,7 +6,7 @@
 ##---------------------------------v.26-08-14---------------------------------##
 
 # Load libraries
-library(ggplot2)             
+    library(ggplot2)             
 
 # Load (all) data from the sensors
 # plot.sensors <- function() {this does not yet work as a function at the moment
