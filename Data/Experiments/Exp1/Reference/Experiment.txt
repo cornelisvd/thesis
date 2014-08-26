@@ -1,1 +1,0 @@
-Two sensors have been placed in a Davis weather station close to where the actual sensor is placed.

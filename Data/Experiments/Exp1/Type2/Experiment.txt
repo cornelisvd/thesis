@@ -1,3 +1,0 @@
-2 x 15 sensors have been placed in an official weather station at the CATIE farm in Turrialba, CR.
-Type one refers to sensors that have been set to measure at the lower resolution, type 2 = high res.
-7 days of measurements have been done at 5 min intervals from 23 - 30 June 2014.
