@@ -24,10 +24,10 @@
     units         <-  c("temperature", "humidity")
   
 # Load (all) data from the sensors
-    load.sensors <- function (format = "%m-%d-%y %I:%M:%S %p",  ## Date format
-                              unit        = "hours",            ## Time units
-                              na.estimate = na.spline,          ## Interpolation
-                              sensor      = "iButton")          ## Sensor type
+    load.sensors <- function (format = "%m-%d-%y %I:%M:%S %p",  # Date format
+                              unit        = "hours",            # Time units
+                              na.estimate = na.spline,          # Interpolation
+                              sensor      = "iButton")          # Sensor type
       ## Information about how to adjust the date-time format can be found at: 
       ## https://stat.ethz.ch/R-manual/R-patched/library/base/html/strptime.html
     {

@@ -17,6 +17,8 @@
         lh <- list.ok$humidity
         lt <-  lt[ , -which(names(lt) %in% temp_sensors)]
         lh <-  lh[ , -which(names(lh) %in% humd_sensors)]
+        lt <- na.omit(lt)
+        lh <- na.omit(lh)
         list.cor <<- list(lt, lh)
 
     }
