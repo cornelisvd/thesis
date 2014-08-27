@@ -6,12 +6,12 @@
 
 # Load libraries
     library(raster)
-    library(spacetime)
 
 # Function to create raster from the STFDF file
-    create.rast <- function (x       = stfdf, 
-                             plot    = FALSE) 
-    {   
+    create.rast <- function (x = stfdf, 
+        {   
+            
+    # This can be used to create multiple RasterStacks for different units       
         ubol <- c(temperature, humidity)
         unit <- which(ubol == TRUE)
         list.ras <- list() 
