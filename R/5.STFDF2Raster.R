@@ -8,7 +8,7 @@
     library(raster)
 
 # Function to create raster from the STFDF file
-    create.rast <- function (x = stfdf, 
+    create.rast <- function (x = stfdf) 
         {   
             
     # This can be used to create multiple RasterStacks for different units       
