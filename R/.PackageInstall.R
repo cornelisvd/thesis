@@ -1,5 +1,5 @@
 ##------------------------------Package install-------------------------------##
-## This script can check for required packages and, when required, instal these.
+## This script will check for required packages and, if required, install these.
 ##--------------------------------v.28-08-14----------------------------------##
 
 # Function to install the required packages in the project

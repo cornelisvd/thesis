@@ -14,8 +14,8 @@
 
 # Create spatio-temporal data-frames
     load.spatial <- function(cells = 1000,                        # Nr. of cells    
-                             start = "2013-06-23",                # Start season
-                             end   = "2013-06-30",                # Season end                   
+                             start = "2013-07-15",                # Start season
+                             end   = "2013-07-22",                # Season end                   
                              plot  = FALSE,                       # Plot yes/no
                              proj  = "+proj=longlat+datum=WGS84") # Projection
                              ## plotKML option
