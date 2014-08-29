@@ -1,5 +1,5 @@
 
-    sunPosition <- function(year, month, day, hour=12, min=0, sec=0,
+    sunpos <- function(year, month, day, hour=12, min=0, sec=0,
                         lat, lon) {
     
         twopi <- 2 * pi
