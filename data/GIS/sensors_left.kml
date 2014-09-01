@@ -1,0 +1,993 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document id="root_doc">
+<Schema name="sensors" id="sensors">
+	<SimpleField name="iButton.ID" type="int"></SimpleField>
+	<SimpleField name="Number" type="string"></SimpleField>
+	<SimpleField name="X" type="float"></SimpleField>
+	<SimpleField name="Y" type="float"></SimpleField>
+	<SimpleField name="Z" type="int"></SimpleField>
+</Schema>
+<Folder><name>sensors</name>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">1</SimpleData>
+		<SimpleData name="Number">338005</SimpleData>
+		<SimpleData name="X">-83.72872</SimpleData>
+		<SimpleData name="Y">9.938</SimpleData>
+		<SimpleData name="Z">1048</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72872,9.938</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">2</SimpleData>
+		<SimpleData name="Number">337976</SimpleData>
+		<SimpleData name="X">-83.74335</SimpleData>
+		<SimpleData name="Y">9.94128</SimpleData>
+		<SimpleData name="Z">1287</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.74335,9.94128</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">3</SimpleData>
+		<SimpleData name="Number">3382F3</SimpleData>
+		<SimpleData name="X">-83.74156</SimpleData>
+		<SimpleData name="Y">9.94056</SimpleData>
+		<SimpleData name="Z">1249</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.74156,9.94056</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">4</SimpleData>
+		<SimpleData name="Number">337C34</SimpleData>
+		<SimpleData name="X">-83.72878</SimpleData>
+		<SimpleData name="Y">9.93785</SimpleData>
+		<SimpleData name="Z">1048</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72878,9.93785</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">5</SimpleData>
+		<SimpleData name="Number">337FFE</SimpleData>
+		<SimpleData name="X">-83.73132</SimpleData>
+		<SimpleData name="Y">9.93939</SimpleData>
+		<SimpleData name="Z">1077</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73132,9.93939</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">6</SimpleData>
+		<SimpleData name="Number">337ADC</SimpleData>
+		<SimpleData name="X">-83.73289</SimpleData>
+		<SimpleData name="Y">9.93916</SimpleData>
+		<SimpleData name="Z">1091</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73289,9.93916</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">7</SimpleData>
+		<SimpleData name="Number">337AFE</SimpleData>
+		<SimpleData name="X">-83.73008</SimpleData>
+		<SimpleData name="Y">9.93936</SimpleData>
+		<SimpleData name="Z">1057</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73008,9.93936</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">8</SimpleData>
+		<SimpleData name="Number">337712</SimpleData>
+		<SimpleData name="X">-83.7299</SimpleData>
+		<SimpleData name="Y">9.93783</SimpleData>
+		<SimpleData name="Z">1064</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.7299,9.93783</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">9</SimpleData>
+		<SimpleData name="Number">337F93</SimpleData>
+		<SimpleData name="X">-83.73351</SimpleData>
+		<SimpleData name="Y">9.93886</SimpleData>
+		<SimpleData name="Z">1094</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73351,9.93886</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">10</SimpleData>
+		<SimpleData name="Number">338044</SimpleData>
+		<SimpleData name="X">-83.73193</SimpleData>
+		<SimpleData name="Y">9.93812</SimpleData>
+		<SimpleData name="Z">1076</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73193,9.93812</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">11</SimpleData>
+		<SimpleData name="Number">337E5B</SimpleData>
+		<SimpleData name="X">-83.71147</SimpleData>
+		<SimpleData name="Y">9.93268</SimpleData>
+		<SimpleData name="Z">871</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.71147,9.93268</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">12</SimpleData>
+		<SimpleData name="Number">33830E</SimpleData>
+		<SimpleData name="X">-83.74054</SimpleData>
+		<SimpleData name="Y">9.94193</SimpleData>
+		<SimpleData name="Z">1246</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.74054,9.94193</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">13</SimpleData>
+		<SimpleData name="Number">337F94</SimpleData>
+		<SimpleData name="X">-83.73611</SimpleData>
+		<SimpleData name="Y">9.93805</SimpleData>
+		<SimpleData name="Z">1128</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73611,9.93805</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">14</SimpleData>
+		<SimpleData name="Number">337D07</SimpleData>
+		<SimpleData name="X">-83.73016</SimpleData>
+		<SimpleData name="Y">9.94036</SimpleData>
+		<SimpleData name="Z">1090</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73016,9.94036</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">15</SimpleData>
+		<SimpleData name="Number">337F00</SimpleData>
+		<SimpleData name="X">-83.73078</SimpleData>
+		<SimpleData name="Y">9.93852</SimpleData>
+		<SimpleData name="Z">1059</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73078,9.93852</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">16</SimpleData>
+		<SimpleData name="Number">33806B</SimpleData>
+		<SimpleData name="X">-83.72993</SimpleData>
+		<SimpleData name="Y">9.93692</SimpleData>
+		<SimpleData name="Z">1071</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72993,9.93692</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">17</SimpleData>
+		<SimpleData name="Number">337AA8</SimpleData>
+		<SimpleData name="X">-83.73717</SimpleData>
+		<SimpleData name="Y">9.93838</SimpleData>
+		<SimpleData name="Z">1137</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73717,9.93838</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">18</SimpleData>
+		<SimpleData name="Number">337C7A</SimpleData>
+		<SimpleData name="X">-83.73742</SimpleData>
+		<SimpleData name="Y">9.93883</SimpleData>
+		<SimpleData name="Z">1143</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73742,9.93883</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">19</SimpleData>
+		<SimpleData name="Number">337BE9</SimpleData>
+		<SimpleData name="X">-83.73704</SimpleData>
+		<SimpleData name="Y">9.93812</SimpleData>
+		<SimpleData name="Z">1137</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73704,9.93812</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">20</SimpleData>
+		<SimpleData name="Number">338350</SimpleData>
+		<SimpleData name="X">-83.72935</SimpleData>
+		<SimpleData name="Y">9.93812</SimpleData>
+		<SimpleData name="Z">1052</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72935,9.93812</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">21</SimpleData>
+		<SimpleData name="Number">337FC6</SimpleData>
+		<SimpleData name="X">-83.72921</SimpleData>
+		<SimpleData name="Y">9.94069</SimpleData>
+		<SimpleData name="Z">1079</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72921,9.94069</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">22</SimpleData>
+		<SimpleData name="Number">338007</SimpleData>
+		<SimpleData name="X">-83.72945</SimpleData>
+		<SimpleData name="Y">9.93676</SimpleData>
+		<SimpleData name="Z">1067</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72945,9.93676</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">23</SimpleData>
+		<SimpleData name="Number">3382A2</SimpleData>
+		<SimpleData name="X">-83.73075</SimpleData>
+		<SimpleData name="Y">9.93804</SimpleData>
+		<SimpleData name="Z">1073</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73075,9.93804</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">24</SimpleData>
+		<SimpleData name="Number">337AD1</SimpleData>
+		<SimpleData name="X">-83.74144</SimpleData>
+		<SimpleData name="Y">9.93649</SimpleData>
+		<SimpleData name="Z">1210</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.74144,9.93649</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">25</SimpleData>
+		<SimpleData name="Number">337D1E</SimpleData>
+		<SimpleData name="X">-83.73897</SimpleData>
+		<SimpleData name="Y">9.93797</SimpleData>
+		<SimpleData name="Z">1191</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73897,9.93797</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">26</SimpleData>
+		<SimpleData name="Number">337B7C</SimpleData>
+		<SimpleData name="X">-83.72295</SimpleData>
+		<SimpleData name="Y">9.93894</SimpleData>
+		<SimpleData name="Z">1037</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72295,9.93894</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">27</SimpleData>
+		<SimpleData name="Number">337BA4</SimpleData>
+		<SimpleData name="X">-83.728</SimpleData>
+		<SimpleData name="Y">9.93908</SimpleData>
+		<SimpleData name="Z">1049</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.728,9.93908</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">28</SimpleData>
+		<SimpleData name="Number">337B0A</SimpleData>
+		<SimpleData name="X">-83.73096</SimpleData>
+		<SimpleData name="Y">9.94013</SimpleData>
+		<SimpleData name="Z">1108</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73096,9.94013</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">29</SimpleData>
+		<SimpleData name="Number">337FC1</SimpleData>
+		<SimpleData name="X">-83.74095</SimpleData>
+		<SimpleData name="Y">9.93952</SimpleData>
+		<SimpleData name="Z">1243</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.74095,9.93952</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">30</SimpleData>
+		<SimpleData name="Number">337BD5</SimpleData>
+		<SimpleData name="X">-83.73226</SimpleData>
+		<SimpleData name="Y">9.94007</SimpleData>
+		<SimpleData name="Z">1107</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73226,9.94007</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">31</SimpleData>
+		<SimpleData name="Number">338210</SimpleData>
+		<SimpleData name="X">-83.72875</SimpleData>
+		<SimpleData name="Y">9.93839</SimpleData>
+		<SimpleData name="Z">1053</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72875,9.93839</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">32</SimpleData>
+		<SimpleData name="Number">337B5D</SimpleData>
+		<SimpleData name="X">-83.74268</SimpleData>
+		<SimpleData name="Y">9.93745</SimpleData>
+		<SimpleData name="Z">1227</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.74268,9.93745</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">33</SimpleData>
+		<SimpleData name="Number">337E8D</SimpleData>
+		<SimpleData name="X">-83.72987</SimpleData>
+		<SimpleData name="Y">9.93631</SimpleData>
+		<SimpleData name="Z">1075</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72987,9.93631</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">34</SimpleData>
+		<SimpleData name="Number">3382E5</SimpleData>
+		<SimpleData name="X">-83.70689</SimpleData>
+		<SimpleData name="Y">9.93083</SimpleData>
+		<SimpleData name="Z">832</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.70689,9.93083</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">35</SimpleData>
+		<SimpleData name="Number">337F65</SimpleData>
+		<SimpleData name="X">-83.72939</SimpleData>
+		<SimpleData name="Y">9.94009</SimpleData>
+		<SimpleData name="Z">1069</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72939,9.94009</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">36</SimpleData>
+		<SimpleData name="Number">3381BE</SimpleData>
+		<SimpleData name="X">-83.74018</SimpleData>
+		<SimpleData name="Y">9.93948</SimpleData>
+		<SimpleData name="Z">1230</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.74018,9.93948</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">37</SimpleData>
+		<SimpleData name="Number">337B89</SimpleData>
+		<SimpleData name="X">-83.72778</SimpleData>
+		<SimpleData name="Y">9.93786</SimpleData>
+		<SimpleData name="Z">1049</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72778,9.93786</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">38</SimpleData>
+		<SimpleData name="Number">338201</SimpleData>
+		<SimpleData name="X">-83.73045</SimpleData>
+		<SimpleData name="Y">9.93989</SimpleData>
+		<SimpleData name="Z">1080</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73045,9.93989</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">40</SimpleData>
+		<SimpleData name="Number">337B08</SimpleData>
+		<SimpleData name="X">-83.7349</SimpleData>
+		<SimpleData name="Y">9.95041</SimpleData>
+		<SimpleData name="Z">1237</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.7349,9.95041</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">41</SimpleData>
+		<SimpleData name="Number">3381A7</SimpleData>
+		<SimpleData name="X">-83.729</SimpleData>
+		<SimpleData name="Y">9.9385</SimpleData>
+		<SimpleData name="Z">1055</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.729,9.9385</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">42</SimpleData>
+		<SimpleData name="Number">337EEC</SimpleData>
+		<SimpleData name="X">-83.72699</SimpleData>
+		<SimpleData name="Y">9.93697</SimpleData>
+		<SimpleData name="Z">1035</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72699,9.93697</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">43</SimpleData>
+		<SimpleData name="Number">337D4A</SimpleData>
+		<SimpleData name="X">-83.72764</SimpleData>
+		<SimpleData name="Y">9.93861</SimpleData>
+		<SimpleData name="Z">1009</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72764,9.93861</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">44</SimpleData>
+		<SimpleData name="Number">337B0E</SimpleData>
+		<SimpleData name="X">-83.73138</SimpleData>
+		<SimpleData name="Y">9.93696</SimpleData>
+		<SimpleData name="Z">1087</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73138,9.93696</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">45</SimpleData>
+		<SimpleData name="Number">338329</SimpleData>
+		<SimpleData name="X">-83.73007</SimpleData>
+		<SimpleData name="Y">9.94515</SimpleData>
+		<SimpleData name="Z">1120</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73007,9.94515</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">46</SimpleData>
+		<SimpleData name="Number">338202</SimpleData>
+		<SimpleData name="X">-83.73016</SimpleData>
+		<SimpleData name="Y">9.93863</SimpleData>
+		<SimpleData name="Z">1060</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73016,9.93863</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">47</SimpleData>
+		<SimpleData name="Number">3381C3</SimpleData>
+		<SimpleData name="X">-83.73985</SimpleData>
+		<SimpleData name="Y">9.9458</SimpleData>
+		<SimpleData name="Z">1208</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73985,9.9458</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">49</SimpleData>
+		<SimpleData name="Number">337BDB</SimpleData>
+		<SimpleData name="X">-83.73145</SimpleData>
+		<SimpleData name="Y">9.95644</SimpleData>
+		<SimpleData name="Z">1320</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73145,9.95644</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">50</SimpleData>
+		<SimpleData name="Number">337EB0</SimpleData>
+		<SimpleData name="X">-83.71372</SimpleData>
+		<SimpleData name="Y">9.93301</SimpleData>
+		<SimpleData name="Z">923</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.71372,9.93301</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">51</SimpleData>
+		<SimpleData name="Number">337DBA</SimpleData>
+		<SimpleData name="X">-83.73496</SimpleData>
+		<SimpleData name="Y">9.93803</SimpleData>
+		<SimpleData name="Z">1124</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73496,9.93803</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">52</SimpleData>
+		<SimpleData name="Number">337AC3</SimpleData>
+		<SimpleData name="X">-83.72893</SimpleData>
+		<SimpleData name="Y">9.93707</SimpleData>
+		<SimpleData name="Z">1051</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72893,9.93707</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">53</SimpleData>
+		<SimpleData name="Number">337885</SimpleData>
+		<SimpleData name="X">-83.72662</SimpleData>
+		<SimpleData name="Y">9.94056</SimpleData>
+		<SimpleData name="Z">1047</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72662,9.94056</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">54</SimpleData>
+		<SimpleData name="Number">337800</SimpleData>
+		<SimpleData name="X">-83.72068</SimpleData>
+		<SimpleData name="Y">9.94099</SimpleData>
+		<SimpleData name="Z">1044</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72068,9.94099</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">55</SimpleData>
+		<SimpleData name="Number">33823B</SimpleData>
+		<SimpleData name="X">-83.71056</SimpleData>
+		<SimpleData name="Y">9.93953</SimpleData>
+		<SimpleData name="Z">963</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.71056,9.93953</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">56</SimpleData>
+		<SimpleData name="Number">338135</SimpleData>
+		<SimpleData name="X">-83.73515</SimpleData>
+		<SimpleData name="Y">9.94088</SimpleData>
+		<SimpleData name="Z">1160</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73515,9.94088</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">57</SimpleData>
+		<SimpleData name="Number">337F0C</SimpleData>
+		<SimpleData name="X">-83.72897</SimpleData>
+		<SimpleData name="Y">9.93836</SimpleData>
+		<SimpleData name="Z">1054</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72897,9.93836</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">58</SimpleData>
+		<SimpleData name="Number">337DA9</SimpleData>
+		<SimpleData name="X">-83.72868</SimpleData>
+		<SimpleData name="Y">9.92972</SimpleData>
+		<SimpleData name="Z">1070</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72868,9.92972</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">59</SimpleData>
+		<SimpleData name="Number">337864</SimpleData>
+		<SimpleData name="X">-83.73227</SimpleData>
+		<SimpleData name="Y">9.93153</SimpleData>
+		<SimpleData name="Z">1100</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73227,9.93153</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">60</SimpleData>
+		<SimpleData name="Number">338246</SimpleData>
+		<SimpleData name="X">-83.73898</SimpleData>
+		<SimpleData name="Y">9.94354</SimpleData>
+		<SimpleData name="Z">1203</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73898,9.94354</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">61</SimpleData>
+		<SimpleData name="Number">338240</SimpleData>
+		<SimpleData name="X">-83.73761</SimpleData>
+		<SimpleData name="Y">9.9366</SimpleData>
+		<SimpleData name="Z">1176</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73761,9.9366</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">62</SimpleData>
+		<SimpleData name="Number">3382C3</SimpleData>
+		<SimpleData name="X">-83.72913</SimpleData>
+		<SimpleData name="Y">9.94555</SimpleData>
+		<SimpleData name="Z">1116</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72913,9.94555</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">63</SimpleData>
+		<SimpleData name="Number">337FC3</SimpleData>
+		<SimpleData name="X">-83.73163</SimpleData>
+		<SimpleData name="Y">9.9421</SimpleData>
+		<SimpleData name="Z">1120</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73163,9.9421</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">64</SimpleData>
+		<SimpleData name="Number">3382CA</SimpleData>
+		<SimpleData name="X">-83.73415</SimpleData>
+		<SimpleData name="Y">9.9369</SimpleData>
+		<SimpleData name="Z">1150</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73415,9.9369</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">65</SimpleData>
+		<SimpleData name="Number">337B7F</SimpleData>
+		<SimpleData name="X">-83.7233</SimpleData>
+		<SimpleData name="Y">9.94343</SimpleData>
+		<SimpleData name="Z">1064</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.7233,9.94343</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">66</SimpleData>
+		<SimpleData name="Number">337618</SimpleData>
+		<SimpleData name="X">-83.72876</SimpleData>
+		<SimpleData name="Y">9.9403</SimpleData>
+		<SimpleData name="Z">1065</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72876,9.9403</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">67</SimpleData>
+		<SimpleData name="Number">337774</SimpleData>
+		<SimpleData name="X">-83.74487</SimpleData>
+		<SimpleData name="Y">9.94048</SimpleData>
+		<SimpleData name="Z">1282</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.74487,9.94048</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">68</SimpleData>
+		<SimpleData name="Number">337C71</SimpleData>
+		<SimpleData name="X">-83.73042</SimpleData>
+		<SimpleData name="Y">9.95202</SimpleData>
+		<SimpleData name="Z">1250</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73042,9.95202</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">69</SimpleData>
+		<SimpleData name="Number">33765F</SimpleData>
+		<SimpleData name="X">-83.72602</SimpleData>
+		<SimpleData name="Y">9.93137</SimpleData>
+		<SimpleData name="Z">1050</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72602,9.93137</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">70</SimpleData>
+		<SimpleData name="Number">3381DF</SimpleData>
+		<SimpleData name="X">-83.74734</SimpleData>
+		<SimpleData name="Y">9.93894</SimpleData>
+		<SimpleData name="Z">1399</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.74734,9.93894</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">71</SimpleData>
+		<SimpleData name="Number">33768D</SimpleData>
+		<SimpleData name="X">-83.74445</SimpleData>
+		<SimpleData name="Y">9.93291</SimpleData>
+		<SimpleData name="Z">1175</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.74445,9.93291</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">72</SimpleData>
+		<SimpleData name="Number">337DB1</SimpleData>
+		<SimpleData name="X">-83.73945</SimpleData>
+		<SimpleData name="Y">9.94086</SimpleData>
+		<SimpleData name="Z">1243</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73945,9.94086</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">73</SimpleData>
+		<SimpleData name="Number">338339</SimpleData>
+		<SimpleData name="X">-83.727</SimpleData>
+		<SimpleData name="Y">9.9391</SimpleData>
+		<SimpleData name="Z">1040</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.727,9.9391</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">74</SimpleData>
+		<SimpleData name="Number">337D4C</SimpleData>
+		<SimpleData name="X">-83.73239</SimpleData>
+		<SimpleData name="Y">9.93643</SimpleData>
+		<SimpleData name="Z">1116</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73239,9.93643</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">75</SimpleData>
+		<SimpleData name="Number">337DAB</SimpleData>
+		<SimpleData name="X">-83.7181</SimpleData>
+		<SimpleData name="Y">9.94287</SimpleData>
+		<SimpleData name="Z">1062</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.7181,9.94287</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">76</SimpleData>
+		<SimpleData name="Number">337E65</SimpleData>
+		<SimpleData name="X">-83.72875</SimpleData>
+		<SimpleData name="Y">9.94866</SimpleData>
+		<SimpleData name="Z">1165</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72875,9.94866</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">77</SimpleData>
+		<SimpleData name="Number">33812D</SimpleData>
+		<SimpleData name="X">-83.7197</SimpleData>
+		<SimpleData name="Y">9.93512</SimpleData>
+		<SimpleData name="Z">1003</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.7197,9.93512</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">78</SimpleData>
+		<SimpleData name="Number">337B33</SimpleData>
+		<SimpleData name="X">-83.70549</SimpleData>
+		<SimpleData name="Y">9.93444</SimpleData>
+		<SimpleData name="Z">922</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.70549,9.93444</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">79</SimpleData>
+		<SimpleData name="Number">337BBA</SimpleData>
+		<SimpleData name="X">-83.72995</SimpleData>
+		<SimpleData name="Y">9.93659</SimpleData>
+		<SimpleData name="Z">1071</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72995,9.93659</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">80</SimpleData>
+		<SimpleData name="Number">33827E</SimpleData>
+		<SimpleData name="X">-83.71431</SimpleData>
+		<SimpleData name="Y">9.94193</SimpleData>
+		<SimpleData name="Z">1049</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.71431,9.94193</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">81</SimpleData>
+		<SimpleData name="Number">337ECE</SimpleData>
+		<SimpleData name="X">-83.72426</SimpleData>
+		<SimpleData name="Y">9.94983</SimpleData>
+		<SimpleData name="Z">1159</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72426,9.94983</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">82</SimpleData>
+		<SimpleData name="Number">337DBB</SimpleData>
+		<SimpleData name="X">-83.73324</SimpleData>
+		<SimpleData name="Y">9.94101</SimpleData>
+		<SimpleData name="Z">1136</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73324,9.94101</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">83</SimpleData>
+		<SimpleData name="Number">338343</SimpleData>
+		<SimpleData name="X">-83.72207</SimpleData>
+		<SimpleData name="Y">9.93332</SimpleData>
+		<SimpleData name="Z">995</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72207,9.93332</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">84</SimpleData>
+		<SimpleData name="Number">337C18</SimpleData>
+		<SimpleData name="X">-83.74536</SimpleData>
+		<SimpleData name="Y">9.94458</SimpleData>
+		<SimpleData name="Z">1274</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.74536,9.94458</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">85</SimpleData>
+		<SimpleData name="Number">337DCC</SimpleData>
+		<SimpleData name="X">-83.72303</SimpleData>
+		<SimpleData name="Y">9.94655</SimpleData>
+		<SimpleData name="Z">1153</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72303,9.94655</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">86</SimpleData>
+		<SimpleData name="Number">337A73</SimpleData>
+		<SimpleData name="X">-83.72823</SimpleData>
+		<SimpleData name="Y">9.95221</SimpleData>
+		<SimpleData name="Z">1228</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72823,9.95221</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">87</SimpleData>
+		<SimpleData name="Number">337D17</SimpleData>
+		<SimpleData name="X">-83.74054</SimpleData>
+		<SimpleData name="Y">9.94319</SimpleData>
+		<SimpleData name="Z">1229</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.74054,9.94319</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">88</SimpleData>
+		<SimpleData name="Number">337D1F</SimpleData>
+		<SimpleData name="X">-83.7131</SimpleData>
+		<SimpleData name="Y">9.93527</SimpleData>
+		<SimpleData name="Z">984</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.7131,9.93527</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">89</SimpleData>
+		<SimpleData name="Number">3382AF</SimpleData>
+		<SimpleData name="X">-83.73349</SimpleData>
+		<SimpleData name="Y">9.95657</SimpleData>
+		<SimpleData name="Z">1304</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73349,9.95657</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">90</SimpleData>
+		<SimpleData name="Number">337D48</SimpleData>
+		<SimpleData name="X">-83.73442</SimpleData>
+		<SimpleData name="Y">9.93566</SimpleData>
+		<SimpleData name="Z">1139</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73442,9.93566</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">91</SimpleData>
+		<SimpleData name="Number">337C81</SimpleData>
+		<SimpleData name="X">-83.7322</SimpleData>
+		<SimpleData name="Y">9.94814</SimpleData>
+		<SimpleData name="Z">1160</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.7322,9.94814</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">92</SimpleData>
+		<SimpleData name="Number">337AFB</SimpleData>
+		<SimpleData name="X">-83.71989</SimpleData>
+		<SimpleData name="Y">9.94333</SimpleData>
+		<SimpleData name="Z">1074</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.71989,9.94333</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">93</SimpleData>
+		<SimpleData name="Number">337F1D</SimpleData>
+		<SimpleData name="X">-83.73843</SimpleData>
+		<SimpleData name="Y">9.93421</SimpleData>
+		<SimpleData name="Z">1164</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73843,9.93421</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">94</SimpleData>
+		<SimpleData name="Number">337839</SimpleData>
+		<SimpleData name="X">-83.74269</SimpleData>
+		<SimpleData name="Y">9.9395</SimpleData>
+		<SimpleData name="Z">1250</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.74269,9.9395</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">95</SimpleData>
+		<SimpleData name="Number">337F97</SimpleData>
+		<SimpleData name="X">-83.71654</SimpleData>
+		<SimpleData name="Y">9.93783</SimpleData>
+		<SimpleData name="Z">1010</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.71654,9.93783</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">96</SimpleData>
+		<SimpleData name="Number">338204</SimpleData>
+		<SimpleData name="X">-83.73383</SimpleData>
+		<SimpleData name="Y">9.93958</SimpleData>
+		<SimpleData name="Z">1142</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73383,9.93958</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">97</SimpleData>
+		<SimpleData name="Number">337EB5</SimpleData>
+		<SimpleData name="X">-83.74024</SimpleData>
+		<SimpleData name="Y">9.9377</SimpleData>
+		<SimpleData name="Z">1226</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.74024,9.9377</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">98</SimpleData>
+		<SimpleData name="Number">3381C0</SimpleData>
+		<SimpleData name="X">-83.7391</SimpleData>
+		<SimpleData name="Y">9.9489</SimpleData>
+		<SimpleData name="Z">1244</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.7391,9.9489</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">99</SimpleData>
+		<SimpleData name="Number">337B00</SimpleData>
+		<SimpleData name="X">-83.71032</SimpleData>
+		<SimpleData name="Y">9.93377</SimpleData>
+		<SimpleData name="Z">879</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.71032,9.93377</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">100</SimpleData>
+		<SimpleData name="Number">3378D9</SimpleData>
+		<SimpleData name="X">-83.72397</SimpleData>
+		<SimpleData name="Y">9.93529</SimpleData>
+		<SimpleData name="Z">1010</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72397,9.93529</coordinates></Point>
+  </Placemark>
+</Folder>
+</Document></kml>
