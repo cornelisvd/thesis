@@ -13,9 +13,10 @@ setwd ("~/thesis/data/Experiments/")
 # Load libraries & clear the workspace
 rm (list = ls(all = TRUE))  ;   
 source(".PackageInstall.R")
+source(".PackageInstall.R")
 
 #
-exp.time    <- function(exp     = "Exp1",
+exp.time2    <- function(exp     = "Exp1",
                         type    = "Reference",
                         rowskip =  19, 
                         time    = "Date.Time", 

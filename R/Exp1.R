@@ -13,60 +13,13 @@
 # Load libraries & clear the workspace
     rm (list = ls(all = TRUE))  ;   
     source(".PackageInstall.R")
+    source(".Exp1Functions.R")
     
-#
-    exp.time    <- function(exp     = "Exp1",
-                            type    = "Reference",
-                            rowskip =  19, 
-                            time    = "Date.Time", 
-                            val     = "Value",
-                            format  = "%d/%m/%y %H:%M:%S",
-                            time.un = "mins",
-                            unit    = "Temp")
-    {
+##------------------------------Minute linear----------------------------------##
        
-    ## 
-        require(zoo)
-        require(ggplot2)
-        start    <- as.POSIXct("23/06/14 12:00:00", format = "%d/%m/%y %H:%M:%S")
-        end      <- as.POSIXct("30/06/14 11:59:00", format = "%d/%m/%y %H:%M:%S")
-        season   <<- seq(from = start, to = end, 
-                        by = as.difftime(2, units = "hours"))  
-        index    <- zoo(1, season) 
-        seas     <- index
-       
-    ##    
-        type.dir <- dir(paste(exp,"/",type,"/",unit, sep =""), pattern =".csv")
-        type.zoo <- list() 
-    
-    ##
-    for (i in 1:length(type.dir)) {
-        v  <- subset(read.csv(paste(exp, "/", type, "/", unit, "/", 
-                              type.dir[i], sep =""), skip = rowskip, 
-                              header = TRUE), select = c(time, val)) 
-        v$Date.Time <- strptime(v$Date.Time, format)
-        vc <- as.character(v$Date.Time)
-        v$Date.Time <- as.POSIXct(vc)
-        v <- na.omit(v)                            
-        v.zoo <- zoo(v$Value, v$Date.Time)
-        type.zoo[[i]] <- v.zoo
-    }  
-    
-    ##
-        type.zoo <- type.zoo[!sapply(type.zoo, is.null)] 
-        type.df  <- do.call(merge, type.zoo)
-          
-    ## Interpolate points with NA values
-        est.obs   <- na.spline(merge.zoo(index, type.df))
-        est.obs   <- as.data.frame(merge.zoo(index, est.obs, all=FALSE))   
-        est.obs  <<- est.obs[3:(length(type.dir)+2)]
-    }
-    
-    
     exp.temp <- list()
-    exp.humd <- list()
-    exp.obs  <- c("Reference", "Type1", "Type2")
-    
+    exp.humd <- list(
+        )
     for (k in 1:length(exp.obs)) {
         exp.time(type = exp.obs[k], unit = "Temp")
         exp.temp[[k]] <- est.obs
@@ -80,62 +33,6 @@
     names(exp.temp) <- exp.obs
     names(exp.humd) <- exp.obs
   
-    
-    exp.temp.h <- list()
-    exp.humd.h <- list()
-    exp.obs  <- c("Reference", "Type1", "Type2")
-    
-    for (k in 1:length(exp.obs)) {
-        exp.time(type = exp.obs[k], unit = "Temp", time.un = "hours")
-        exp.temp.h[[k]] <- est.obs
-    }
-    
-    for (l in 1:length(exp.obs)) {
-        exp.time(type = exp.obs[l], unit = "Humd", time.un = "hours")
-        exp.humd.h[[l]] <- est.obs
-    }      
-    
-    names(exp.temp.h) <- exp.obs
-    names(exp.humd.h) <- exp.obs
-    
-    
-    
-    
-        rm(exp.obs, k, l)
-    
-    
-    plotlayers <- function(ylabel, ylimit, title) {
-    p <- ggplot(layer, aes(x=season, y=layer[,1])) + 
-        geom_line(alpha = 0.02, size = 0.2) + 
-        xlab("Date") + ylab(ylabel) + ylim(ylimit) + ggtitle(title) +
-        theme(legend.position="none", panel.background = element_rect(fill = 'white'),
-              panel.border = element_rect(color="black", size = 0.2, fill = NA),
-              plot.title = element_text(vjust=1.8, face="bold"),
-              axis.title.x=element_text(vjust=0.01))
-         for (i in 2:length(layer)) {
-        p <- p + geom_line(y= layer[,i], colour = "black", alpha = 0.2)
-        }
-    return(p)
-    }
-    
-    
-    histlayers <- function() {
-        m <- ggplot(temp.min, aes(x=temp.min[,1])) +
-        geom_density(aes(y = ..density..)) + xlim(c(15,32)) + 
-            xlab("degrees Celsius") + ggtitle("Figure 1: Density plots of tempearature observations") +
-        theme(panel.background = element_rect(fill = 'white'),
-              panel.border = element_rect(color="black", size = 0.1, fill = NA),
-              plot.title = element_text(vjust=1.8, face="bold"),
-              axis.title.x=element_text(vjust=0.01)) +
-            geom_density(data = temp.hour, aes(x = temp.hour[,1],
-                           y = ..density..), binwidth = 0.5, linetype="dashed", colour = "grey25") +
-              geom_density(data = temp.random, aes(x = temp.random[,1],
-                             y = ..density..), binwidth = 0.5, colour = "grey50",
-                           linetype="dotted") 
-        return(m)
-    }
-       
-    
     layer <- exp.temp$Type1
     plotlayers(ylabel = "degrees Celsius", ylimit = c(15, 30), 
                title = "1A. Type 1 (lower resolution) temperature observations") 
@@ -148,26 +45,330 @@
     layer <- exp.humd$Type2
     plotlayers(ylabel = "relative humidity (%)", ylimit = c(50, 100),
                title = "2B. Type 2 (higher resolution) humidity observations") 
-    layer <- exp.temp.h$Type2
-    plotlayers(ylabel = "degrees Celsius", ylimit = c(15, 30), 
-               title = "1. Type 2 (higher resolution) temperature observations at hourly interval (normal)") 
-    
-    layer <- exp.temp.h$Type1
-    plotlayers(ylabel = "degrees Celsius", ylimit = c(15, 30), 
-               title = "3. Type 1 (lower resolution) temperature observations at hourly interval (normal)") 
     
     type1.matrix.t <- as.matrix(exp.temp$Type1)
     type2.matrix.t <- as.matrix(exp.temp$Type2)
     type1.matrix.h <- as.matrix(exp.humd$Type1)
     type2.matrix.h <- as.matrix(exp.humd$Type2)
-    temp.hour.mtrx <- as.matrix(exp.temp.h$Type2)
-    temp.hour.mtrx.1 <- as.matrix(exp.temp.h$Type1)
-    temp.min  <- as.data.frame(as.vector(type2.matrix.t))
-    temp.hour <- as.data.frame(as.vector(temp.hour.mtrx))
-    temp.random <- as.data.frame(as.vector(random.hour))
-  
-    histlayers() 
     
-    layer <- exp.temp.h$Type1
-    plotlayers(ylabel = "degrees Celsius", ylimit = c(15, 30), 
-               title = "7. Type 1 (lower resolution): cubic spline of temperature observations at hourly interval (normal)") 
+    vector.t1 <- as.vector(type1.matrix.t)
+    summary.t1 <- summary(vector.t1)
+    mean(rowSds(type1.matrix.t))
+    max(rowDiffs(type1.matrix.t))
+    
+    vector.t2 <- as.vector(type2.matrix.t)
+    vector.h2 <- as.vector(type2.matrix.h)
+    correlat <- cor(vector.t2, vector.h2)
+    summary.t2 <- summary(vector.t2)
+    mean(rowSds(type2.matrix.t))
+    max(rowDiffs(type2.matrix.t))
+    
+##----------------------------------Hour linear------------------------------------##
+    
+    exp.temp.h <- list()
+    exp.humd.h <- list()
+    exp.obs  <- c("Reference", "Type1", "Type2")
+    
+    for (k in 1:length(exp.obs)) {
+        exp.time(type = exp.obs[k], unit = "Temp", time.un = "hours")
+        exp.temp.h[[k]] <- est.obs
+    }
+    
+    layer <- exp.humd.h$Type1
+    plotlayers(ylabel = "relative humidity (%)", ylimit = c(50, 100),
+               title = "2B. Type 2 (higher resolution) humidity observations") 
+    
+    for (l in 1:length(exp.obs)) {
+        exp.time(type = exp.obs[l], unit = "Humd", time.un = "hours")
+        exp.humd.h[[l]] <- est.obs
+    }      
+    
+    names(exp.temp.h) <- exp.obs
+    names(exp.humd.h) <- exp.obs
+    
+    type1.matrix.t.h <- as.matrix(exp.temp.h$Type1)
+    type2.matrix.t.h <- as.matrix(exp.temp.h$Type2)
+    type1.matrix.h.h <- as.matrix(exp.humd.h$Type1)
+    type2.matrix.h.h <- as.matrix(exp.humd.h$Type2)
+    
+    vector.t1.h <- as.vector(type1.matrix.t.h)
+    summary.t1.h <- summary(vector.t1.h)
+    mean(rowSds(type1.matrix.t.h))
+    max(rowDiffs(type1.matrix.t.h))
+    
+    vector.t2.h <- as.vector(type2.matrix.t.h)
+    summary.t2.h <- summary(vector.t2.h)
+    mean(rowSds(type2.matrix.t.h))
+    max(rowDiffs(type2.matrix.t.h))
+    
+##----------------------------------Hour spline-----------------------------##
+    
+    exp.temp.h.s <- list()
+    exp.humd.h.s <- list()
+    exp.obs  <- c("Reference", "Type1", "Type2")
+    
+    for (k in 1:length(exp.obs)) {
+        exp.time(type = exp.obs[k], unit = "Temp", time.un = "hours", 
+                 na.est = na.spline)
+        exp.temp.h.s[[k]] <- est.obs
+    }
+    
+    for (l in 1:length(exp.obs)) {
+        exp.time(type = exp.obs[l], unit = "Humd", time.un = "hours",
+                 na.est = na.spline)
+        exp.humd.h.s[[l]] <- est.obs
+    }      
+    
+    names(exp.temp.h.s) <- exp.obs
+    names(exp.humd.h.s) <- exp.obs
+    
+    type1.matrix.t.h.s <- as.matrix(exp.temp.h.s$Type1)
+    type2.matrix.t.h.s <- as.matrix(exp.temp.h.s$Type2)
+    type1.matrix.h.h.s <- as.matrix(exp.humd.h.s$Type1)
+    type2.matrix.h.h.s <- as.matrix(exp.humd.h.s$Type2)
+    
+    vector.t1.h.s <- as.vector(type1.matrix.t.h.s)
+    summary.t1.h.s <- summary(vector.t1.h.s)
+    mean(rowSds(type1.matrix.t.h.s))
+    max(rowDiffs(type1.matrix.t.h.s))
+    
+    vector.t2.h.s <- as.vector(type2.matrix.t.h.s)
+    summary.t2.h.s <- summary(vector.t2.h.s)
+    mean(rowSds(type2.matrix.t.h.s))
+    max(rowDiffs(type2.matrix.t.h.s))
+
+##--------------------------------2 Hour linear-------------------------------##
+    
+    exp.temp.2h <- list()
+    exp.humd.2h <- list()
+    exp.obs  <- c("Reference", "Type1", "Type2")
+    
+    for (k in 1:length(exp.obs)) {
+        exp.time(type = exp.obs[k], unit = "Temp", time.un = "hours",
+                 time.dif = 2)
+        exp.temp.2h[[k]] <- est.obs
+    }
+    
+    for (l in 1:length(exp.obs)) {
+        exp.time(type = exp.obs[l], unit = "Humd", time.un = "hours",
+                 time.dif = 2)
+        exp.humd.2h[[l]] <- est.obs
+    }      
+    
+    names(exp.temp.2h) <- exp.obs
+    names(exp.humd.2h) <- exp.obs
+    
+    type1.matrix.t.2h <- as.matrix(exp.temp.2h$Type1)
+    type2.matrix.t.2h <- as.matrix(exp.temp.2h$Type2)
+    type1.matrix.h.2h <- as.matrix(exp.humd.2h$Type1)
+    type2.matrix.h.2h <- as.matrix(exp.humd.2h$Type2)
+    
+    vector.t1.2h <- as.vector(type1.matrix.t.2h)
+    summary.t1.2h <- summary(vector.t1.2h)
+    mean(rowSds(type1.matrix.t.2h))
+    max(rowDiffs(type1.matrix.t.2h))
+    
+    vector.t2.2h <- as.vector(type2.matrix.t.2h)
+    summary.t2.2h <- summary(vector.t2.2h)
+    mean(rowSds(type2.matrix.t.2h))
+    max(rowDiffs(type2.matrix.t.2h))
+    
+##---------------------------------2 Hour spline----------------------------##
+   
+    exp.temp.2h.s <- list()
+    exp.humd.2h.s <- list()
+    exp.obs  <- c("Reference", "Type1", "Type2")
+    
+    for (k in 1:length(exp.obs)) {
+        exp.time(type = exp.obs[k], unit = "Temp", time.un = "hours", 
+                 na.est = na.spline, time.dif = 2)
+        exp.temp.2h.s[[k]] <- est.obs
+    }
+    
+    for (l in 1:length(exp.obs)) {
+        exp.time(type = exp.obs[l], unit = "Humd", time.un = "hours",
+                 na.est = na.spline, time.dif = 2)
+        exp.humd.2h.s[[l]] <- est.obs
+    }      
+    
+    names(exp.temp.2h.s) <- exp.obs
+    names(exp.humd.2h.s) <- exp.obs
+    
+    type1.matrix.t.2h.s <- as.matrix(exp.temp.2h.s$Type1)
+    type2.matrix.t.2h.s <- as.matrix(exp.temp.2h.s$Type2)
+    type1.matrix.h.2h.s <- as.matrix(exp.humd.2h.s$Type1)
+    type2.matrix.h.2h.s <- as.matrix(exp.humd.2h.s$Type2)
+    
+    vector.t1.2h.s <- as.vector(type1.matrix.t.2h.s)
+    summary.t1.2h.s <- summary(vector.t1.2h.s)
+    mean(rowSds(type1.matrix.t.2h.s))
+    max(rowDiffs(type1.matrix.t.2h.s))
+    
+    vector.t2.2h.s <- as.vector(type2.matrix.t.2h.s)
+    summary.t2.2h.s <- summary(vector.t2.2h.s)
+    mean(rowSds(type2.matrix.t.2h.s))
+    max(rowDiffs(type2.matrix.t.2h.s))
+
+##-------------------------------Hour random linear--------------------------##
+    
+    exp.temp.r.h <- list()
+    exp.humd.r.h <- list()
+    exp.obs  <- c("Reference", "Type1", "Type2")
+    
+    for (k in 1:length(exp.obs)) {
+        exp.time2(type = exp.obs[k], unit = "Temp", time.un = "hours")
+        exp.temp.r.h[[k]] <- est.obs
+    }
+    
+    for (l in 1:length(exp.obs)) {
+        exp.time2(type = exp.obs[l], unit = "Humd", time.un = "hours")
+        exp.humd.r.h[[l]] <- est.obs
+    }      
+    
+    names(exp.temp.r.h) <- exp.obs
+    names(exp.humd.r.h) <- exp.obs
+    
+    type1.matrix.r.t.h <- as.matrix(exp.temp.r.h$Type1)
+    type2.matrix.r.t.h <- as.matrix(exp.temp.r.h$Type2)
+    type1.matrix.r.h.h <- as.matrix(exp.humd.r.h$Type1)
+    type2.matrix.r.h.h <- as.matrix(exp.humd.r.h$Type2)
+    
+    vector.t1.r.h <- as.vector(type1.matrix.r.t.h)
+    summary.t1.r.h <- summary(vector.t1.r.h)
+    mean(rowSds(type1.matrix.r.t.h))
+    max(rowDiffs(type1.matrix.r.t.h))
+    
+    vector.t2.r.h <- as.vector(type2.matrix.r.t.h)
+    summary.t2.r.h <- summary(vector.t2.r.h)
+    mean(rowSds(type2.matrix.r.t.h))
+    max(rowDiffs(type2.matrix.r.t.h))
+    
+##-------------------------------Hour random spline--------------------------##
+    
+    exp.temp.r.h.s <- list()
+    exp.humd.r.h.s <- list()
+    exp.obs  <- c("Reference", "Type1", "Type2")
+    
+    for (k in 1:length(exp.obs)) {
+        exp.time2(type = exp.obs[k], unit = "Temp", time.un = "hours",
+                  na.est = na.spline)
+        exp.temp.r.h.s[[k]] <- est.obs
+    }
+    
+    for (l in 1:length(exp.obs)) {
+        exp.time2(type = exp.obs[l], unit = "Humd", time.un = "hours",
+                  na.est = na.spline)
+        exp.humd.r.h.s[[l]] <- est.obs
+    }      
+    
+    names(exp.temp.r.h.s) <- exp.obs
+    names(exp.humd.r.h.s) <- exp.obs
+    
+    type1.matrix.r.t.h.s <- as.matrix(exp.temp.r.h.s$Type1)
+    type2.matrix.r.t.h.s <- as.matrix(exp.temp.r.h.s$Type2)
+    type1.matrix.r.h.h.s <- as.matrix(exp.humd.r.h.s$Type1)
+    type2.matrix.r.h.h.s <- as.matrix(exp.humd.r.h.s$Type2)
+    
+    vector.t1.r.h.s <- as.vector(type1.matrix.r.t.h.s)
+    summary.t1.r.h.s <- summary(vector.t1.r.h.s)
+    mean(rowSds(type1.matrix.r.t.h.s))
+    max(rowDiffs(type1.matrix.r.t.h.s))
+    
+    vector.t2.r.h.s <- as.vector(type2.matrix.r.t.h.s)
+    summary.t2.r.h.s <- summary(vector.t2.r.h.s)
+    mean(rowSds(type2.matrix.r.t.h.s))
+    max(rowDiffs(type2.matrix.r.t.h.s))
+    
+##-----------------------------2 Hour random linear--------------------------##
+    
+    exp.temp.r.2h <- list()
+    exp.humd.r.2h <- list()
+    exp.obs  <- c("Reference", "Type1", "Type2")
+    
+    for (k in 1:length(exp.obs)) {
+        exp.time2(type = exp.obs[k], unit = "Temp", time.un = "hours",
+                  time.dif = 2)
+        exp.temp.r.2h[[k]] <- est.obs
+    }
+    
+    for (l in 1:length(exp.obs)) {
+        exp.time2(type = exp.obs[l], unit = "Humd", time.un = "hours",
+                  time.dif = 2)
+        exp.humd.r.2h[[l]] <- est.obs
+    }      
+    
+    names(exp.temp.r.2h) <- exp.obs
+    names(exp.humd.r.2h) <- exp.obs
+    
+    type1.matrix.r.t.2h <- as.matrix(exp.temp.r.2h$Type1)
+    type2.matrix.r.t.2h <- as.matrix(exp.temp.r.2h$Type2)
+    type1.matrix.r.h.2h <- as.matrix(exp.humd.r.2h$Type1)
+    type2.matrix.r.h.2h <- as.matrix(exp.humd.r.2h$Type2)
+    
+    vector.t1.r.2h <- as.vector(type1.matrix.r.t.2h)
+    summary.t1.r.2h <- summary(vector.t1.r.2h)
+    mean(rowSds(type1.matrix.r.t.2h))
+    max(rowDiffs(type1.matrix.r.t.2h))
+    
+    vector.t2.r.2h <- as.vector(type2.matrix.r.t.2h)
+    summary.t2.r.2h <- summary(vector.t2.r.2h)
+    mean(rowSds(type2.matrix.r.t.2h))
+    max(rowDiffs(type2.matrix.r.t.2h))
+    
+    ##-------------------------------Hour random spline--------------------------##
+    
+    exp.temp.r.2h.s <- list()
+    exp.humd.r.2h.s <- list()
+    exp.obs  <- c("Reference", "Type1", "Type2")
+    
+    for (k in 1:length(exp.obs)) {
+        exp.time2(type = exp.obs[k], unit = "Temp", time.un = "hours",
+                  na.est = na.spline, time.dif = 2)
+        exp.temp.r.2h.s[[k]] <- est.obs
+    }
+    
+    for (l in 1:length(exp.obs)) {
+        exp.time2(type = exp.obs[l], unit = "Humd", time.un = "hours",
+                  na.est = na.spline, time.dif = 2)
+        exp.humd.r.2h.s[[l]] <- est.obs
+    }      
+    
+    names(exp.temp.r.2h.s) <- exp.obs
+    names(exp.humd.r.2h.s) <- exp.obs
+    
+    type1.matrix.r.t.2h.s <- as.matrix(exp.temp.r.2h.s$Type1)
+    type2.matrix.r.t.2h.s <- as.matrix(exp.temp.r.2h.s$Type2)
+    type1.matrix.r.h.2h.s <- as.matrix(exp.humd.r.2h.s$Type1)
+    type2.matrix.r.h.h.s <- as.matrix(exp.humd.r.h.s$Type2)
+    
+    vector.t1.r.2h.s <- as.vector(type1.matrix.r.t.2h.s)
+    summary.t1.r.2h.s <- summary(vector.t1.r.2h.s)
+    mean(rowSds(type1.matrix.r.t.2h.s))
+    max(rowDiffs(type1.matrix.r.t.2h.s))
+    
+    vector.t2.r.2h.s <- as.vector(type2.matrix.r.t.2h.s)
+    summary.t2.r.2h.s <- summary(vector.t2.r.2h.s)
+    mean(rowSds(type2.matrix.r.t.2h.s))
+    max(rowDiffs(type2.matrix.r.t.2h.s))
+    
+##------------------------------------Density plotting----------------------------##
+    
+   
+    minute.data <- data.frame(vector.t2)
+    hour.data <- data.frame(vector.t2.h, vector.t2.h.s,  vector.t2.2h, vector.t2.2h.s,
+                 vector.t2.r.h, vector.t2.r.h.s, vector.t2.r.2h, vector.t2.r.2h.s )
+
+    histlayers <- function() {
+        m <- ggplot(minute.data, aes(x=minute.data[,1])) +
+            geom_density(aes(y = ..density..)) + xlim(c(15,32)) + xlab("degrees Celsius") +
+            ggtitle("Figure 1: Density plots of tempearature observations") +
+            theme(panel.background = element_rect(fill = 'white'),
+                  panel.border = element_rect(color="black", size = 0.1, fill = NA),
+                  plot.title = element_text(vjust=1.8, face="bold"),
+                  axis.title.x=element_text(vjust=0.01)) +
+            geom_density(data = hour.data, aes(x = hour.data[,1],
+             y = ..density..), binwidth = 0.5, linetype="dashed") +
+            geom_density(data = hour.data, aes(x = hour.data[,8],
+             y = ..density..), binwidth = 0.5, linetype="dotted")      
+        return(m)
+    }
