@@ -216,12 +216,14 @@
     exp.obs  <- c("Reference", "Type1", "Type2")
     
     for (k in 1:length(exp.obs)) {
-        exp.time2(type = exp.obs[k], unit = "Temp", time.un = "hours")
+        exp.time2(type = exp.obs[k], unit = "Temp", time.un = "hours",
+                  time.dif = 1)
         exp.temp.r.h[[k]] <- est.obs
     }
     
     for (l in 1:length(exp.obs)) {
-        exp.time2(type = exp.obs[l], unit = "Humd", time.un = "hours")
+        exp.time2(type = exp.obs[l], unit = "Humd", time.un = "hours",
+                  time.dif = 1)
         exp.humd.r.h[[l]] <- est.obs
     }      
     
@@ -339,7 +341,7 @@
     type1.matrix.r.t.2h.s <- as.matrix(exp.temp.r.2h.s$Type1)
     type2.matrix.r.t.2h.s <- as.matrix(exp.temp.r.2h.s$Type2)
     type1.matrix.r.h.2h.s <- as.matrix(exp.humd.r.2h.s$Type1)
-    type2.matrix.r.h.h.s <- as.matrix(exp.humd.r.h.s$Type2)
+    type2.matrix.r.h.2h.s <- as.matrix(exp.humd.r.h.s$Type2)
     
     vector.t1.r.2h.s <- as.vector(type1.matrix.r.t.2h.s)
     summary.t1.r.2h.s <- summary(vector.t1.r.2h.s)
@@ -371,4 +373,44 @@
             geom_density(data = hour.data, aes(x = hour.data[,8],
              y = ..density..), binwidth = 0.5, linetype="dotted")      
         return(m)
+    }
+    
+    x1 <- as.data.frame(type2.matrix.t)
+    x2 <- as.data.frame(type2.matrix.r.t.h2)
+    x3 <- as.data.frame(type2.matrix.r.t.2h.s)
+    
+    start    <- as.POSIXct("23/06/14 12:00:00", format = "%d/%m/%y %H:%M:%S")
+    end      <- as.POSIXct("30/06/14 11:59:00", format = "%d/%m/%y %H:%M:%S")
+    t.t1    <- seq(from = start, to = end, 
+                     by = as.difftime(1, units = "mins"))  
+    t.t2 <- seq(from = start, to = end, 
+                     by = as.difftime(1, units = "hours")) 
+    t.t3 <- seq(from = start, to = end, 
+                by = as.difftime(2, units = "hours")) 
+    
+
+     ggplot(x1, aes(x=t.t1, y=x1[,1])) + 
+            geom_line(data = x1, aes(x=t.t1, y=x1[,1]), colour = "grey90", linetype = "solid", size = 1) + 
+            geom_line(data = x2, aes(x=t.t3, y=x2[,1]), colour = "grey50", linetype = "longdash") +
+             xlab("Date") + ylab("degrees Celsius") + ylim(c(18,30)) + 
+        ggtitle("Temperature extremes using a 2-hour interval (random start-point)") +
+            geom_line(data = x3, aes(x=t.t3, y=x3[,1]), colour = "grey10", linetype = "dashed") +
+        theme(legend.position="right", panel.background = element_rect(fill = 'white'),
+              panel.border = element_rect(color="black", size = 0.2, fill = NA),
+              plot.title = element_text(vjust=1.8, face="bold"),
+              axis.title.x=element_text(vjust=0.01))
+         
+    
+    plotlayers <- function(ylabel, ylimit, title) {
+        p <- ggplot(layer, aes(x=season, y=layer[,1])) + 
+            geom_line(alpha = 0.02, size = 0.2) + 
+            xlab("Date") + ylab(ylabel) + ylim(ylimit) + ggtitle(title) +
+            theme(legend.position="none", panel.background = element_rect(fill = 'white'),
+                  panel.border = element_rect(color="black", size = 0.2, fill = NA),
+                  plot.title = element_text(vjust=1.8, face="bold"),
+                  axis.title.x=element_text(vjust=0.01))
+        for (i in 2:length(layer)) {
+            p <- p + geom_line(y= layer[,i], colour = "black", alpha = 0.2)
+        }
+        return(p)
     }
