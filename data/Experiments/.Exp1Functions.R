@@ -55,11 +55,11 @@
     plotlayers <- function(ylabel, ylimit, title) {
         p <- ggplot(layer, aes(x=season, y=layer[,1])) + 
             geom_line(alpha = 0.02, size = 0.2) + 
-            xlab("Date") + ylab(ylabel) + ylim(ylimit) + ggtitle(title) +
-            theme(legend.position="none", panel.background = element_rect(fill = 'white'),
-                  panel.border = element_rect(color="black", size = 0.2, fill = NA),
-                  plot.title = element_text(vjust=1.8, face="bold"),
-                  axis.title.x=element_text(vjust=0.01))
+            xlab("Date") + ylab(ylabel) + ylim(ylimit) + ggtitle(title) # +
+  #          theme(legend.position="none", panel.background = element_rect(fill = 'white'),
+  #                panel.border = element_rect(color="black", size = 0.2, fill = NA),
+  #                plot.title = element_text(vjust=1.8, face="bold"),
+  #                axis.title.x=element_text(vjust=0.01))
         for (i in 2:length(layer)) {
             p <- p + geom_line(y= layer[,i], colour = "black", alpha = 0.2)
         }

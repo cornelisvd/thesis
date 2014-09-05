@@ -362,21 +362,25 @@
 
     histlayers <- function() {
         m <- ggplot(minute.data, aes(x=minute.data[,1])) +
-            geom_density(aes(y = ..density..)) + xlim(c(15,32)) + xlab("degrees Celsius") +
+            geom_density(aes(y = ..density..,  color="1- Minute data")) + 
+            xlim(c(15,32)) + xlab("degrees Celsius") +
             ggtitle("Figure 1: Density plots of tempearature observations") +
             theme(panel.background = element_rect(fill = 'white'),
                   panel.border = element_rect(color="black", size = 0.1, fill = NA),
                   plot.title = element_text(vjust=1.8, face="bold"),
                   axis.title.x=element_text(vjust=0.01)) +
             geom_density(data = hour.data, aes(x = hour.data[,1],
-             y = ..density..), binwidth = 0.5, linetype="dashed") +
+             y = ..density.., color="1-Hour normal/linear"), binwidth = 0.5, linetype="dashed") +
             geom_density(data = hour.data, aes(x = hour.data[,8],
-             y = ..density..), binwidth = 0.5, linetype="dotted")      
+             y = ..density.., color="2-Hour random/spline"), binwidth = 0.5, linetype="longdash") +
+            scale_color_manual(name  ="Legend", 
+                               values=c("grey85", "grey60", "grey10")) 
         return(m)
     }
+    histlayers()
     
     x1 <- as.data.frame(type2.matrix.t)
-    x2 <- as.data.frame(type2.matrix.r.t.h2)
+    x2 <- as.data.frame(type2.matrix.r.t.2h)
     x3 <- as.data.frame(type2.matrix.r.t.2h.s)
     
     start    <- as.POSIXct("23/06/14 12:00:00", format = "%d/%m/%y %H:%M:%S")
@@ -390,15 +394,21 @@
     
 
      ggplot(x1, aes(x=t.t1, y=x1[,1])) + 
-            geom_line(data = x1, aes(x=t.t1, y=x1[,1]), colour = "grey90", linetype = "solid", size = 1) + 
-            geom_line(data = x2, aes(x=t.t3, y=x2[,1]), colour = "grey50", linetype = "longdash") +
+            geom_line(data = x1, aes(x=t.t1, y=x1[,1], color = "1- Minute data"), 
+                      linetype = "solid") + 
+            geom_line(data = x2, aes(x=t.t3, y=x2[,1], color = "2-hour/linear"),
+                      linetype = "longdash") +
              xlab("Date") + ylab("degrees Celsius") + ylim(c(18,30)) + 
         ggtitle("Temperature extremes using a 2-hour interval (random start-point)") +
-            geom_line(data = x3, aes(x=t.t3, y=x3[,1]), colour = "grey10", linetype = "dashed") +
+            geom_line(data = x3, aes(x=t.t3, y=x3[,1], color = "2-Hour/spline"), 
+                      linetype = "solid") +
         theme(legend.position="right", panel.background = element_rect(fill = 'white'),
               panel.border = element_rect(color="black", size = 0.2, fill = NA),
               plot.title = element_text(vjust=1.8, face="bold"),
-              axis.title.x=element_text(vjust=0.01))
+              axis.title.x=element_text(vjust=0.01)) +
+              scale_color_manual(name  ="Legend", 
+                                 values=c("grey85", "grey60", "grey10")) 
+    
          
     
     plotlayers <- function(ylabel, ylimit, title) {
