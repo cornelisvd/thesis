@@ -1,64 +1,52 @@
-require(zoo)
-require(lubridate)  
-require(ggplot2) 
-
-dir = "/home/kees/ibuttons/catie/Experiments/Exp5/Humd/Holesfoil/"
-format = "%d/%m/%y %H:%M:%S" 
-sensor = "iButton"      
-unit= "mins"
-cl <- scale_colour_gradient2(high="blue")
-
-if (sensor == "iButton") {
-    rowskip = 19 
-    time = "Date.Time" 
-    val = "Value" 
-}
-
-f <- dir(dir, pattern = ".csv")      
-obs.zoo <- list() 
-
-for (i in 1:length(f)) {
-    v  <- subset(read.csv(paste(dir, f[i], sep =""), skip = rowskip, 
-                          header = TRUE), select = c(time, val)) 
-    v$Date.Time <- strptime(v$Date.Time, format)
-    vc <- as.character(v$Date.Time)
-    v$Date.Time <- as.POSIXct(vc)
-    v <- na.omit(v)                            
-    v.zoo <- zoo(v$Value, v$Date.Time)
-    obs.zoo[[i]] <- v.zoo
-}   
-
-    obs.zoo <- obs.zoo[!sapply(obs.zoo, is.null)] 
-    obs.df <- do.call(merge, obs.zoo)
-    obs.df2 <- obs.df[seq(1, NROW(obs.df), 59),]
-    
-    start <- as.POSIXct("09/07/14 15:01:00", format = "%d/%m/%y %H:%M:%S") 
-    end <- as.POSIXct("10/07/14 15:00:00", format = "%d/%m/%y %H:%M:%S")
-    season <- seq(from = start, to = end, 
-                  by = as.difftime(1, units = "mins"))  
-    index <- zoo(1, season) 
-    seas <<- index
-    
-    est.obs <- na.approx(merge.zoo(index, obs.df))
-    est.obs <- as.data.frame(merge.zoo(index, est.obs, all=FALSE))
-    est.obs[1] <- as.POSIXct(rownames(est.obs))
-    est.obs[2] <- NULL
-    est.obs <- na.omit(est.obs)
-    names(est.obs) <- c("Index", 1:length(f))
+##--------------------------------Experiment 2--------------------------------##
 
 
-P <- list()
-nplot <- 2:length(est.obs)
-for (j in nplot) {
-    P[[length(P) + 1]] <- print(ggplot(est.obs, aes(x=est.obs$Index, 
-    y=est.obs[,j])) + geom_line(aes(colour = est.obs[,j]), alpha = 0.5) + 
-    xlab("Date") + cl + #geom_hline(yintercept = th, colour = "blue") + 
-    ylim(0,40) +
-    geom_smooth(method = "auto", linetype="dashed", aes(group=1)))  
-    
-}
-est.obs[1] <- NULL
-rm(i, j, v, P, cl, dir, end, f, format, index, obs.df, obs.zoo, rowskip,
-   seas, season, sensor, start, time, unit, v.zoo, val, vc, nplot, obs.df2)
 
 
+
+
+##---------------------------------v.01-09-14---------------------------------##
+
+# Set the working directory
+setwd ("~/thesis/data/Experiments/")   
+
+# Load libraries & clear the workspace
+rm (list = ls(all = TRUE))  ;   
+source(".PackageInstall.R")
+source(".Exp2Functions.R")
+
+##------------------------First test (station/pipes)--------------------------##
+
+    exp.time3(type = "Station", unit = "Temp")
+        test1.station.temp <- as.matrix(est.obs)
+    exp.time3(type = "Station", unit = "Humd")
+        test1.station.humd <- as.matrix(est.obs)
+    exp.time3(type = "Pipes", unit = "Temp")
+        test1.pipes.temp <- as.matrix(est.obs)
+    exp.time3(type = "Pipes", unit = "Humd")
+        test1.pipes.humd <- as.matrix(est.obs)
+            t1.s.t <- rowMeans(test1.station.temp)
+            t1.s.h <- rowMeans(test1.station.humd)
+            t1.p.t <- rowMeans(test1.pipes.temp)
+            t1.p.h <- rowMeans(test1.pipes.humd)
+    test1 <- data.frame(t1.s.t, t1.s.h, t1.p.t, t1.p.h)
+
+    plotlayers <- function() {
+        p <- ggplot(test1, aes(x=season, y=test1[,1], color = "station temperature")) + 
+            geom_line() + ggtitle("Temperature and humidity in pipes vs. station") + 
+             ylab("Temperature (degrees Celsius) and relative humidity (%)") + xlab("Date") +
+            theme(panel.background = element_rect(fill = 'white'),
+                  panel.border = element_rect(color="black", size = 0.2, fill = NA),
+                  plot.title = element_text(vjust=1.8, face="bold"),
+                  axis.title.x=element_text(vjust=0.01)) +
+                  geom_line(aes(y = test1[,2], color = "humidity (station)")) +
+                  geom_line(aes(y = test1[,3], color = "temperature (pipes)"),
+                            linetype="longdash") + ylim(c(0,100)) +
+                  geom_line(aes(y = test1[,4], color = "humidity(pipes)"),
+                            linetype="longdash") +
+                 scale_color_manual(name  ="Legend", 
+                           values=c("blue", "lightblue", "red", "orange")) 
+                  return(p)
+    }
+    plotlayers()
+##------------------------------------------------------------------------------------##
