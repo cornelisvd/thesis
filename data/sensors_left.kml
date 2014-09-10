@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document><Folder><name>sensors</name>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">6</SimpleData>
+		<SimpleData name="Number">337ADC</SimpleData>
+		<SimpleData name="X">-83.73289</SimpleData>
+		<SimpleData name="Y">9.93916</SimpleData>
+		<SimpleData name="Z">1091</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73289,9.93916</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">7</SimpleData>
+		<SimpleData name="Number">337AFE</SimpleData>
+		<SimpleData name="X">-83.73008</SimpleData>
+		<SimpleData name="Y">9.93936</SimpleData>
+		<SimpleData name="Z">1057</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73008,9.93936</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">8</SimpleData>
+		<SimpleData name="Number">337712</SimpleData>
+		<SimpleData name="X">-83.7299</SimpleData>
+		<SimpleData name="Y">9.93783</SimpleData>
+		<SimpleData name="Z">1064</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.7299,9.93783</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">10</SimpleData>
+		<SimpleData name="Number">338044</SimpleData>
+		<SimpleData name="X">-83.73193</SimpleData>
+		<SimpleData name="Y">9.93812</SimpleData>
+		<SimpleData name="Z">1076</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73193,9.93812</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">15</SimpleData>
+		<SimpleData name="Number">337F00</SimpleData>
+		<SimpleData name="X">-83.73078</SimpleData>
+		<SimpleData name="Y">9.93852</SimpleData>
+		<SimpleData name="Z">1059</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73078,9.93852</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">17</SimpleData>
+		<SimpleData name="Number">337AA8</SimpleData>
+		<SimpleData name="X">-83.73717</SimpleData>
+		<SimpleData name="Y">9.93838</SimpleData>
+		<SimpleData name="Z">1137</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73717,9.93838</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">21</SimpleData>
+		<SimpleData name="Number">337FC6</SimpleData>
+		<SimpleData name="X">-83.72921</SimpleData>
+		<SimpleData name="Y">9.94069</SimpleData>
+		<SimpleData name="Z">1079</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72921,9.94069</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">28</SimpleData>
+		<SimpleData name="Number">337B0A</SimpleData>
+		<SimpleData name="X">-83.73096</SimpleData>
+		<SimpleData name="Y">9.94013</SimpleData>
+		<SimpleData name="Z">1108</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73096,9.94013</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">29</SimpleData>
+		<SimpleData name="Number">337FC1</SimpleData>
+		<SimpleData name="X">-83.74095</SimpleData>
+		<SimpleData name="Y">9.93952</SimpleData>
+		<SimpleData name="Z">1243</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.74095,9.93952</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">43</SimpleData>
+		<SimpleData name="Number">337D4A</SimpleData>
+		<SimpleData name="X">-83.72764</SimpleData>
+		<SimpleData name="Y">9.93861</SimpleData>
+		<SimpleData name="Z">1009</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72764,9.93861</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">44</SimpleData>
+		<SimpleData name="Number">337B0E</SimpleData>
+		<SimpleData name="X">-83.73138</SimpleData>
+		<SimpleData name="Y">9.93696</SimpleData>
+		<SimpleData name="Z">1087</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.73138,9.93696</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">54</SimpleData>
+		<SimpleData name="Number">337800</SimpleData>
+		<SimpleData name="X">-83.72068</SimpleData>
+		<SimpleData name="Y">9.94099</SimpleData>
+		<SimpleData name="Z">1044</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.72068,9.94099</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">92</SimpleData>
+		<SimpleData name="Number">337AFB</SimpleData>
+		<SimpleData name="X">-83.71989</SimpleData>
+		<SimpleData name="Y">9.94333</SimpleData>
+		<SimpleData name="Z">1074</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.71989,9.94333</coordinates></Point>
+  </Placemark>
+  <Placemark>
+	<ExtendedData><SchemaData schemaUrl="#sensors">
+		<SimpleData name="iButton.ID">94</SimpleData>
+		<SimpleData name="Number">337839</SimpleData>
+		<SimpleData name="X">-83.74269</SimpleData>
+		<SimpleData name="Y">9.9395</SimpleData>
+		<SimpleData name="Z">1250</SimpleData>
+	</SchemaData></ExtendedData>
+      <Point><coordinates>-83.74269,9.9395</coordinates></Point>
+  </Placemark>
+</Folder>
+<Schema name="sensors" id="sensors">
+	<SimpleField name="iButton.ID" type="int"></SimpleField>
+	<SimpleField name="Number" type="string"></SimpleField>
+	<SimpleField name="X" type="float"></SimpleField>
+	<SimpleField name="Y" type="float"></SimpleField>
+	<SimpleField name="Z" type="int"></SimpleField>
+</Schema>
+</Document></kml>
