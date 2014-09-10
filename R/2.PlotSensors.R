@@ -31,7 +31,7 @@
             obs.ok <- as.data.frame(list.ok[i])
             colnames(obs.ok)[1] <- "date"
             names <- unlist(strsplit(names(obs.ok), "[.]"))
-            m <- match(names[1:length(names)], loc$CODE) 
+            m <- match(names[1:length(names)], loc$Number) 
             m <- m[!is.na(m)]
             sl = c()
             sz = c()

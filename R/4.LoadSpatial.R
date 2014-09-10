@@ -14,8 +14,8 @@
 
 # Create spatio-temporal data-frames
     load.spatial <- function(cells = 1000,                        # Nr. of cells    
-                             start = "2013-07-15",                # Start season
-                             end   = "2013-07-22",                # Season end                   
+                             start = "2014-08-15",                # Start season
+                             end   = "2014-08-22",                # Season end                   
                              plot  = FALSE,                       # Plot yes/no
                              proj  = "+proj=longlat+datum=WGS84") # Projection
                              ## plotKML option
@@ -49,14 +49,14 @@
             colnames(obs.cor)[1] <- "date"
             
         ### Make a subset of the data for the desired period
-            obs.cor <- subset(obs.cor, obs.cor$date >= as.POSIXct(start)
-                              & obs.cor$date <= as.POSIXct(end))
+            obs.cor <- subset(obs.cor, obs.cor$date > as.POSIXct("2014-08-15") & obs.cor$date < as.POSIXct("2014-08-18"))
             dates <- obs.cor[1]
             obs.cor[1] <- NULL
-            names <- unlist(strsplit(names(obs.cor), "[.]"))
+            names <- unlist(strsplit(names(obs.cor), "X"))
+            nm <- names[1:length(names) %% 2 == 0]
         
         ### Create spatial points of the useful sensors
-            m <- match(names[1:length(names)], loc$CODE) 
+            m <- match(nm, loc$Number)
             l <- na.omit(loc[m,])
             coordinates(l) = ~X+Y
             proj4string(l) = proj

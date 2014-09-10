@@ -6,8 +6,8 @@
 ##---------------------------------v.28-08-14---------------------------------##
 
 # Function to calculate thresholds based on min and max humidity & temperature
-    calc.thresh <- function (lowerT   = 15,
-                             upperT   = 30,
+    calc.thresh <- function (lowerT   = 5,
+                             upperT   = 25,
                              lowerRH  = 30,
                              upperRH  = 110,
                              risk.map = TRUE,

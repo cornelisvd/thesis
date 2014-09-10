@@ -14,9 +14,9 @@
     setwd ("~/thesis/data/")   
     
 # Add the folders with the sensor data
-    folder        <-  "Honduras"
-    period        <-  "primera" 
-    registry      <-  "ibuttons.csv"
+    folder        <-  "Aquiares"
+   # period        <-  "primera" 
+    registry      <-  "iButtonIDs.csv"
     
 # Select temperature and/or humidity 
     temperature   <- TRUE
@@ -24,7 +24,7 @@
     units         <-  c("temperature", "humidity")
   
 # Load (all) data from the sensors
-    load.sensors <- function (format = "%m-%d-%y %I:%M:%S %p",  # Date format
+    load.sensors <- function (format = "%d/%m/%y %I:%M:%S %p",  # Date format
                               unit        = "hours",            # Time units
                               na.estimate = na.spline,          # Interpolation
                               sensor      = "iButton")          # Sensor type
@@ -53,12 +53,15 @@
     
     ## Create zoo-objects for observations
         for (i in units) {
-            dir <- paste(folder, "/", period, "/", i, "/", sep = "")
+            dir <- paste(folder, "/", i, "/", sep = "")
             f   <- dir(dir, pattern = ".csv") 
+            s <- unlist(strsplit(f, "[.]"))
+            m <- match(s[1:length(s) %% 2 == 1], loc$Number) 
+            nm <<- s[1:length(s) %% 2 == 1]
             obs.zoo  <- list()   
         
         ### Load data of points with XY coordinates
-            for (j in com) {
+            for (j in 1:length(m)) {
                 v  <- subset(read.csv(paste(dir, f[j], sep =""), skip = rowskip, 
                                       header = TRUE), select = c(time, val)) 
                 v$Date.Time   <- strptime(v$Date.Time, format)
@@ -80,14 +83,12 @@
             seas    <<- index
         
         ### Interpolate points with NA values
-            est.obs  <- na.estimate(merge.zoo(index, obs.df), maxgap = length(com))
+            est.obs  <- na.estimate(merge.zoo(index, obs.df), maxgap = length(m))
             est.obs  <- as.data.frame(merge.zoo(index, est.obs, all=FALSE))   
             est.obs[est.obs > 100] <- 100
             est.obs[1] <- as.POSIXct(rownames(est.obs))
             est.obs[2] <- NULL
-            names <- unlist(strsplit(f[com], "[.]"))
-            ID <- names[1:length(names) %% 2 == 1]
-            names(est.obs) <- c("Date", ID)
+            names(est.obs) <- c("Date", as.character(s[1:length(s) %% 2 == 1]))
             list.ok[[i]]  <- est.obs     
         }    
     
@@ -95,6 +96,6 @@
         names(list.ok)  <- units
         list.ok        <<- list.ok
         obs.ok         <<- est.obs
-        return(cat(obs, "Farmers have particiated in the study. Out of the total", 
-                   ok.loc, "have included complete XY coordinates."))
+        return(cat(length(m), "sensors have been loaded.")) 
+           
     }
