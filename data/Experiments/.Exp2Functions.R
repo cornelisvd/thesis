@@ -62,7 +62,7 @@ exp.time4    <- function(exp      = "Exp3",
                          time.un  = "hours",
                          time.dif = 1,
                          unit     = "Temp",
-                         na.est   = na.approx)
+                         na.est   = na.spline)
 {
   
   ## 

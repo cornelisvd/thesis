@@ -172,6 +172,8 @@ t4.n.t  <- rowMeans(test4.nothing.temp)
 t4.f.t  <- rowMeans(test4.foil.temp)
 
 
+
+
 test4 <- data.frame(t4.s.t, t4.h.t, t4.fh.t, t4.n.t, t4.f.t)
 
 plotlayers <- function() {
@@ -219,13 +221,13 @@ t5.h.t  <- rowMeans(test5.holes.temp)
 t5.fh.t <- rowMeans(test5.foilwh.temp)
 t5.n.t  <- rowMeans(test5.nothing.temp)
 t5.f.t  <- rowMeans(test5.foil.temp)
-
+x <- smooth.spline(t5.n.t, y = NULL, spar = 0.5)
 
 test5 <- data.frame(t5.s.t, t5.h.t, t5.fh.t, t5.n.t, t5.f.t)
 
 plotlayers <- function() {
-  p <- ggplot(test1, aes(x=season, y=test5[,1], color = "a. Station")) + 
-    geom_line() + ggtitle("Temperature in different 25mm constructions (sunny day)") + 
+  p <- ggplot(test5, aes(x=season, y=test5[,1], color = "a. Station")) + 
+    geom_line() + ggtitle("Temperature in different 25mm constructions (rainy day)") + 
     ylab("Temperature (degrees Celsius)") + xlab("Date") +
     theme(panel.background = element_rect(fill = 'white'),
           panel.border = element_rect(color="black", size = 0.2, fill = NA),
@@ -240,9 +242,12 @@ plotlayers <- function() {
     geom_line(aes(y = test5[,5], color = "e. Foil"),
               linetype="dashed", alpha = 0.9) +
     scale_color_manual(name  ="Legend", 
-              values=c("red", "lightblue", "blue", "lightgreen", "green")) 
+                       values=c("red", "lightblue", "blue", "lightgreen", "green")) 
   return(p)
 }
-  plotlayers()
+plotlayers()
 
-summary(test5)
+##----------------------------------------------------------------------------------##
+
+
+
