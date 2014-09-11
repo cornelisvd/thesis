@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2" xmlns:gx="http://www.google.com/kml/ext/2.2" xmlns:kml="http://www.opengis.net/kml/2.2" xmlns:atom="http://www.w3.org/2005/Atom">
+<Document version="1.0">
+	<name>AQmeanT</name>
+	<open>1</open>
+	<Folder>
+		<name>SpatialGridDataFrame</name>
+		<open>1</open>
+		<GroundOverlay>
+			<name>colour</name>
+			<color>63ffffff</color>
+			<Icon>
+				<href>/home/kees/thesis/data/layer.png</href>
+			</Icon>
+			<LatLonBox>
+				<north>9.95823271028911</north>
+				<south>9.929097557355661</south>
+				<east>-83.7045030258404</east>
+				<west>-83.7478749535575</west>
+			</LatLonBox>
+		</GroundOverlay>
+	</Folder>
+	<ScreenOverlay>
+		<name>Legend</name>
+		<Icon>
+			<href>/home/kees/thesis/data/layer_legend.png</href>
+		</Icon>
+		<overlayXY x="0" y="1" xunits="fraction" yunits="fraction"/>
+		<screenXY x="0" y="1" xunits="fraction" yunits="fraction"/>
+		<rotationXY x="0.5" y="0.5" xunits="fraction" yunits="fraction"/>
+		<size x="-1" y="-1" xunits="pixels" yunits="pixels"/>
+	</ScreenOverlay>
+</Document>
+</kml>

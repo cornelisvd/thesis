@@ -31,7 +31,7 @@
     ## Create prediction grid for interpolation
         lc <- na.omit(loc)
         coordinates(lc) = ~X+Y
-        proj4string(lc) <- proj
+        proj4string(lc) <- CRS("+proj=longlat +datum=WGS84")
         lc <<- lc
     
     ## Create a convex hull around the sensors
@@ -40,7 +40,7 @@
         border <- cbind(lc$X[ch], lc$Y[ch]) 
         grd <- as.data.frame(gridpts(border, cells)) 
         gridded(grd) = ~V1+V2
-        proj4string(grd) <- proj
+        proj4string(grd) <- CRS("+proj=longlat +datum=WGS84")
         list.sp <- list()    
         
     ## Create the spatio-temporal data-frames
@@ -59,9 +59,16 @@
             m <- match(nm, loc$Number)
             l <- na.omit(loc[m,])
             coordinates(l) = ~X+Y
-            proj4string(l) = proj
+            proj4string(l) = CRS("+proj=longlat +datum=WGS84")
             pts <- coordinates(l)
-            pts <- SpatialPoints(pts, CRS(proj))
+            pts <- SpatialPoints(pts, CRS("+proj=longlat +datum=WGS84"))
+        
+        kml     = readOGR("Aquiares2.kml", "Aquiares2") 
+        r = raster(nrows = 30, ncols = 30)
+        extent(r) = extent(kml)
+        ras = rasterize(kml, r)
+        grt <- as(ras, "SpatialPixels")
+        proj4string(grt) <- CRS("+proj=longlat +datum=WGS84")
         
         ### Create ST* objects from long/wide tables
             st <- stConstruct(obs.cor, space = list(values = 1:ncol(obs.cor)), 
@@ -69,7 +76,7 @@
         
         ### Create a prediction grid for the spatial interpolaton
             tgrd <- seq(min(index(st)), max(index(st)), length = tm + 1)
-            prd.grd = STF(grd, tgrd)
+            prd.grd = STF(grt, tgrd)
         
         ### Create a distance to be used in the variogram
             dist <- suppressWarnings(max(gDistance(l, byid=TRUE)*111000))
