@@ -221,28 +221,35 @@ t5.h.t  <- rowMeans(test5.holes.temp)
 t5.fh.t <- rowMeans(test5.foilwh.temp)
 t5.n.t  <- rowMeans(test5.nothing.temp)
 t5.f.t  <- rowMeans(test5.foil.temp)
-x <- smooth.spline(t5.n.t, y = NULL, spar = 0.5)
+
+x1 <- smooth(t5.n.t)
+x2 <- smooth.spline(t5.n.t, spar = 0.3)
+x3 <- lowess(t5.n.t, f = 4/length(t5.n.t))
+x1 <- as.numeric(x1)
+x2 <- x2$y
+x3 <- x3$y
+test6 <- data.frame(t5.s.t, t5.h.t, x1, x2, x3)
 
 test5 <- data.frame(t5.s.t, t5.h.t, t5.fh.t, t5.n.t, t5.f.t)
 
 plotlayers <- function() {
-  p <- ggplot(test5, aes(x=season, y=test5[,1], color = "a. Station")) + 
+  p <- ggplot(test5, aes(x=season, y=test6[,1], color = "a. Station")) + 
     geom_line() + ggtitle("Temperature in different 25mm constructions (rainy day)") + 
     ylab("Temperature (degrees Celsius)") + xlab("Date") +
     theme(panel.background = element_rect(fill = 'white'),
           panel.border = element_rect(color="black", size = 0.2, fill = NA),
           plot.title = element_text(vjust=1.8, face="bold"),
           axis.title.x=element_text(vjust=0.01)) +
-    geom_line(aes(y = test5[,2], color = "b. Holes"), 
+    geom_line(aes(y = test6[,2], color = "b. Holes"), 
               linetype="longdash", alpha = 0.9) +
-    geom_line(aes(y = test5[,3], color = "c. Foil & holes"),
+    geom_line(aes(y = test6[,3], color = "c. Foil & holes"),
               , alpha = 0.9, linetype="dashed") + ylim(c(15,35)) +
-    geom_line(aes(y = test5[,4], color = "d. Nothing"),
+    geom_line(aes(y = test6[,4], color = "d. Nothing"),
               linetype="longdash", alpha = 0.9) +
-    geom_line(aes(y = test5[,5], color = "e. Foil"),
+    geom_line(aes(y = test6[,5], color = "e. Foil"),
               linetype="dashed", alpha = 0.9) +
     scale_color_manual(name  ="Legend", 
-                       values=c("red", "lightblue", "blue", "lightgreen", "green")) 
+                       values=c("red", "lightblue", "blue", "orange", "green")) 
   return(p)
 }
 plotlayers()
@@ -250,4 +257,66 @@ plotlayers()
 ##----------------------------------------------------------------------------------##
 
 
+t1 <- rowMeans(test1.station.temp)
+t2 <- rowMeans(test2.station.temp)
+t3 <- rowMeans(test3.station.temp)
+t4 <- rowMeans(test4.station.temp)
+t5 <- rowMeans(test5.station.temp)
+stationdata <- c(t1, t2, t3, t4, t5)
 
+p1 <- rowMeans(test1.pipes.temp)
+p2 <- rowMeans(test2.white.temp)
+p3 <- rowMeans(test3.white.temp)
+p4 <- rowMeans(test4.nothing.temp)
+p4 <- rowMeans(test5.nothing.temp)
+p4 <- rowMeans(test4.nothing.temp)
+p5 <- rowMeans(test5.nothing.temp)
+pipedata <- c(p1,p2,p3,p4,p5)
+
+turkey <- as.vector(smooth(pipedata))
+splines <- smooth.spline(pipedata, spar = 0.5)
+splines <- splines$y
+lowess <- lowess(pipedata, f = 9/length(pipedata))
+lowess <- lowess$y
+splines2 <- smooth.spline(turkey, spar = 0.4)
+splines2 <- splines2$y
+loewess2 <- lowess(turkey, f = 0.05)
+loewess2 <- loewess2$y
+
+comp <- data.frame(stationdata, pipedata, turkey, splines, lowess)
+
+plotlayers <- function() {
+  p <- ggplot(test5, aes(x=1:120, y=comp[,1], color = "a. Station")) + 
+    geom_line() + ggtitle("LOWESS smoothing, taking into account an 9 hour window") + 
+    ylab("Temperature (degrees Celsius)") + xlab("Time") +
+    theme(panel.background = element_rect(fill = 'white'),
+          panel.border = element_rect(color="black", size = 0.2, fill = NA),
+          plot.title = element_text(vjust=1.8, face="bold"),
+          axis.title.x=element_text(vjust=0.01)) +
+      geom_line(aes(y = comp[,2], color = "b. Tubes"), 
+              linetype="longdash", alpha = 0.9) +
+    geom_line(aes(y = comp[,5], color = "c. Smooth"), 
+              linetype="longdash", alpha = 0.9) +
+  scale_color_manual(name  ="Legend", 
+                     values=c("grey10", "grey85", "grey50")) 
+  
+  +
+    geom_line(aes(y = comp[,4], color = "b. Holes"), 
+              linetype="longdash", alpha = 0.9) +
+    geom_line(aes(y = comp[,5], color = "b. Holes"), 
+              linetype="longdash", alpha = 0.9) 
+    
+    
+    
+  +
+    geom_line(aes(y = test6[,3], color = "c. Foil & holes"),
+              , alpha = 0.9, linetype="dashed") + ylim(c(15,35)) +
+    geom_line(aes(y = test6[,4], color = "d. Nothing"),
+              linetype="longdash", alpha = 0.9) +
+    geom_line(aes(y = test6[,5], color = "e. Foil"),
+              linetype="dashed", alpha = 0.9) +
+    scale_color_manual(name  ="Legend", 
+                       values=c("red", "lightblue", "blue", "orange", "green")) 
+  return(p)
+}
+plotlayers()

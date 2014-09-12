@@ -379,9 +379,12 @@
     }
     histlayers()
     
-    x1 <- as.data.frame(type2.matrix.t)
-    x2 <- as.data.frame(type2.matrix.r.t.2h)
-    x3 <- as.data.frame(type2.matrix.r.t.2h.s)
+    x1 <- as.data.frame(type2.matrix.t.h)
+    x2 <- as.data.frame(as.vector(smooth(rowMeans(type2.matrix.t.h))))
+    x3 <- smooth.spline(rowMeans(type2.matrix.r.t.h, na.rm = TRUE), spar = 0.2)
+    x3 <- as.data.frame(as.vector(x3$y))
+    x4 <- lowess(rowMeans(type2.matrix.t.h, na.rm = TRUE), f = 6/length(type2.matrix.t.h[,1]))
+    x4 <- as.data.frame(as.vector(x4$y))
     
     start    <- as.POSIXct("23/06/14 12:00:00", format = "%d/%m/%y %H:%M:%S")
     end      <- as.POSIXct("30/06/14 11:59:00", format = "%d/%m/%y %H:%M:%S")
@@ -394,20 +397,22 @@
     
 
      ggplot(x1, aes(x=t.t1, y=x1[,1])) + 
-            geom_line(data = x1, aes(x=t.t1, y=x1[,1], color = "1- Minute data"), 
+            geom_line(data = x1, aes(x=t.t2, y=x1[,1], color = "1- Minute data"), 
                       linetype = "solid") + 
-            geom_line(data = x2, aes(x=t.t3, y=x2[,1], color = "2-hour/linear"),
+            geom_line(data = x2, aes(x=t.t2, y=x2[,1], color = "2-hour/linear"),
                       linetype = "longdash") +
+      geom_line(data = x4, aes(x=t.t2, y=x4[,1], color = "2-hour/linear"),
+                linetype = "longdash") +
              xlab("Date") + ylab("degrees Celsius") + ylim(c(18,30)) + 
         ggtitle("Temperature extremes using a 2-hour interval (random start-point)") +
-            geom_line(data = x3, aes(x=t.t3, y=x3[,1], color = "2-Hour/spline"), 
+            geom_line(data = x3, aes(x=t.t2, y=x3[,1], color = "2-Hour/spline"), 
                       linetype = "solid") +
         theme(legend.position="right", panel.background = element_rect(fill = 'white'),
               panel.border = element_rect(color="black", size = 0.2, fill = NA),
               plot.title = element_text(vjust=1.8, face="bold"),
               axis.title.x=element_text(vjust=0.01)) +
               scale_color_manual(name  ="Legend", 
-                                 values=c("grey85", "grey60", "grey10")) 
+                                 values=c("grey85", "grey60", "grey10", "red")) 
     
          
     
