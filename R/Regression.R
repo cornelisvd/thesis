@@ -18,7 +18,7 @@ rm (list = ls(all = TRUE))  ;
 source(".PackageInstall.R")
 source(".Exp2Functions.R")
 
-t = 3/4
+t = 2/4
 x = c(1:50)
 
 ##------------------------First test (station/pipes)--------------------------##
@@ -89,7 +89,7 @@ x = c(1:50)
           
     plot(comp$pipedata,comp$stationdata,xlab = "Shield temperature", 
          ylab = "Temperature in weather station",type="n")
-    points(comp$pipedata,comp$stationdata,cex = .75)
+    points(comp$pipedata,comp$stationdata,cex = .25, pch = 19, col = "grey75")
     X <- model.matrix(comp$stationdata ~ bs(comp$pipedata))
      tau <- t
      fit <- rq(stationdata ~ bs(pipedata), tau=tau, data=comp)
