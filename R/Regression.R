@@ -18,7 +18,7 @@ rm (list = ls(all = TRUE))  ;
 source(".PackageInstall.R")
 source(".Exp2Functions.R")
 
-t = 4/5
+t = 3/4
 x = c(1:50)
 
 ##------------------------First test (station/pipes)--------------------------##
@@ -96,8 +96,8 @@ x = c(1:50)
      accel.fit <- X %*% fit$coef
      save(fit, file="fit.Rdata")
      lines(comp$pipedata,accel.fit)
-new.df <- data.frame(pipedata = x)
-p <- predict(fit, new.df)
+      new.df <- data.frame(pipedata = x)
+      p <- predict(fit, new.df)
    
     
 
