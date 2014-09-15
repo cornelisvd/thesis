@@ -8,8 +8,10 @@
 # Automatically remove sensors that do not meet quality criteria
 
 # Manually remove sensors that do not meet quality criteria
-    clean.sensors <- function (temp_sensors = c("337FFE"),
-                               humd_sensors = c("337FFE")){
+    clean.sensors <- function (temp_sensors = c("337F65", "337F93", "337EB0",
+                                                "337D07", "337B89"),
+                               humd_sensors = c("337F65", "337F93", "337EB0",
+                                                "337D07", "337B89")){
         
         lt <- list.ok$temperature
         lh <- list.ok$humidity

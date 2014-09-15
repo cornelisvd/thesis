@@ -3,19 +3,23 @@
 ## This is the first step and requires the setting of the correct time - format,
 ## the time-unit can also be changed from 'hours' to other options (eg. 'mins').
 ## Main output of this code will be a corrected time-series of all used sensors.
+
+
+
 ##---------------------------------v.25-08-14---------------------------------##
 
 # Load libraries & clear the workspace
     rm (list = ls(all = TRUE))     
     library(zoo)
     library(lubridate)   
+    load("~/thesis/data/Experiments/fit.Rdata")
     
 # Set the working directory
     setwd ("~/thesis/data/")   
     
 # Add the folders with the sensor data
     folder        <-  "Aquiares"
-   # period        <-  "primera" 
+    # period      <-  "primera" 
     registry      <-  "iButtonIDs.csv"
     
 # Select temperature and/or humidity 
@@ -53,21 +57,36 @@
     
     ## Create zoo-objects for observations
         for (i in units) {
-            dir <- paste(folder, "/", i, "/", sep = "")
-            f   <- dir(dir, pattern = ".csv") 
-            s <- unlist(strsplit(f, "[.]"))
-            m <- match(s[1:length(s) %% 2 == 1], loc$Number) 
-            nm <<- s[1:length(s) %% 2 == 1]
+            dir      <- paste(folder, "/", i, "/", sep = "")
+            f        <- dir(dir, pattern = ".csv") 
+            s        <- unlist(strsplit(f, "[.]"))
+            m        <- match(s[1:length(s) %% 2 == 1], loc$Number) 
+            nm      <<- s[1:length(s) %% 2 == 1]
             obs.zoo  <- list()   
         
         ### Load data of points with XY coordinates
             for (j in 1:length(m)) {
                 v  <- subset(read.csv(paste(dir, f[j], sep =""), skip = rowskip, 
                                       header = TRUE), select = c(time, val)) 
+                
+                
+                if (i == "temperature") {        
+                correction <- c()
+                for (k in 1:length(v$Value)) {
+                    if (v$Value[k] < fit$coefficients[1]) { 
+                        correction[k] <- c(v$Value[k])
+                    } else {
+                        x <- suppressWarnings(predict(fit, 
+                                            data.frame(pipedata = v$Value[k])))
+                        correction[k] <- x
+                    }
+                }
+            }            
+                v$Value       <- correction
                 v$Date.Time   <- strptime(v$Date.Time, format)
                 vc            <- as.character(v$Date.Time)
                 v$Date.Time   <- as.POSIXct(vc) 
-                v             <- na.omit(v)                            
+                #v             <- na.omit(v)                            
                 v.zoo         <- zoo(v$Value, v$Date.Time)
                 obs.zoo[[j]]  <- v.zoo
             }    
@@ -97,5 +116,5 @@
         list.ok        <<- list.ok
         obs.ok         <<- est.obs
         return(cat(length(m), "sensors have been loaded.")) 
-           
+        save(list.ok, file = "list.ok.Rdata") 
     }

@@ -10,6 +10,7 @@
     library(splancs)
     library(spacetime)
     library(rgeos)
+    library(rgdal)
     library(gstat)
 
 # Create spatio-temporal data-frames
