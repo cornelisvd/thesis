@@ -50,7 +50,8 @@
             colnames(obs.cor)[1] <- "date"
             
         ### Make a subset of the data for the desired period
-            obs.cor <- subset(obs.cor, obs.cor$date > as.POSIXct("2014-08-15") & obs.cor$date < as.POSIXct("2014-08-18"))
+            obs.cor <- subset(obs.cor, obs.cor$date > as.POSIXct("2014-08-15") & 
+                                  obs.cor$date < as.POSIXct("2014-08-18"))
             dates <- obs.cor[1]
             obs.cor[1] <- NULL
             names <- unlist(strsplit(names(obs.cor), "X"))
@@ -64,7 +65,7 @@
             pts <- coordinates(l)
             pts <- SpatialPoints(pts, CRS("+proj=longlat +datum=WGS84"))
         
-        kml     = readOGR("Aquiares2.kml", "Aquiares2") 
+        kml     = readOGR("AquiaresPoly.kml", "AquiaresPoly") 
         r = raster(nrows = 30, ncols = 30)
         extent(r) = extent(kml)
         ras = rasterize(kml, r)

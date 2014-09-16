@@ -12,10 +12,10 @@
           <href>layer.png</href>
         </Icon>
         <LatLonBox>
-          <north>9.95823271028911</north>
-          <south>9.92909755735566</south>
-          <east>-83.7045030258404</east>
-          <west>-83.7478749535575</west>
+          <north>9.95802240207062</north>
+          <south>9.9291677192451</south>
+          <east>-83.7045037877007</east>
+          <west>-83.7478961304318</west>
         </LatLonBox>
       </GroundOverlay>
     </Folder>

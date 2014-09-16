@@ -97,22 +97,7 @@ x = c(10, 15, 20, 25, 30, 35, 40)
      accel.fit <- X %*% fit$coef
      lines(comp$pipedata,accel.fit, lty="dotted")
 
-      new.df <- data.frame(pipedata = pipedata)
+      new.df <- data.frame(pipedata = x)
       p <- predict(fit, new.df)
     comp2 <- data.frame(stationdata, p)
-
-plotlayers <- function() {
-  p <- ggplot(comp2, aes(x=1:7200, y=comp2[,1], color = "a. Station")) + 
-    geom_line() + ggtitle("Quantile regresion at the median (quantreg: 0.5)") + 
-    ylab("Temperature (degrees Celsius)") + xlab("Time") +
-    theme(panel.background = element_rect(fill = 'white'),
-          panel.border = element_rect(color="black", size = 0.2, fill = NA),
-          plot.title = element_text(vjust=1.8, face="bold"),
-          axis.title.x=element_text(vjust=0.01)) +
-    geom_line(aes(y = comp2[,2], color = "b. Tubes"), 
-              linetype="longdash", alpha = 0.9) +
-       scale_color_manual(name  ="Legend", 
-                       values=c("grey10", "grey85", "grey50")) 
-   
-    
-
+    save(fit, file = "fit.Rdata")
