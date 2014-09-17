@@ -12,8 +12,7 @@
     rm (list = ls(all = TRUE))     
     library(zoo)
     library(lubridate)   
-    load("~/thesis/data/Experiments/fit.Rdata")
-    
+        
 # Set the working directory
     setwd ("~/thesis/data/")   
     
@@ -71,6 +70,7 @@
                 
                 
                 if (i == "temperature") {        
+                load("~/thesis/data/Experiments/fit.T.Rdata")
                 correction <- c()
                 for (k in 1:length(v$Value)) {
                     if (v$Value[k] < fit$coefficients[1]) { 
@@ -79,9 +79,19 @@
                         x <- suppressWarnings(predict(fit, 
                                             data.frame(pipedata = v$Value[k])))
                         correction[k] <- x
-                    }
-                }
-            }            
+                    }}}
+                    if (i == "humidity") {      
+                    load("~/thesis/data/Experiments/fit.H.Rdata")
+                    correction <- c()
+                        for (k in 1:length(v$Value)) {
+                            if (v$Value[k] < fit$coefficients[1]) { 
+                                correction[k] <- c(v$Value[k])
+                            } else {
+                                x <- suppressWarnings(predict(fit, 
+                                data.frame(pipedata = v$Value[k])))
+                                correction[k] <- x
+                    }}}       
+                
                 v$Value       <- correction
                 v$Date.Time   <- strptime(v$Date.Time, format)
                 vc            <- as.character(v$Date.Time)
