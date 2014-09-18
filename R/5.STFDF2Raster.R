@@ -12,8 +12,9 @@
         {   
             
     # This can be used to create multiple RasterStacks for different units       
-        ubol <- c(temperature, humidity)
-        unit <- which(ubol == TRUE)
+       # ubol <- c(temperature, humidity)
+       # unit <- which(ubol == TRUE)
+        unit <- c(1,2)
         list.ras <- list() 
         
         for (j in unit) {
