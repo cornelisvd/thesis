@@ -77,3 +77,6 @@ agg.spatial <- function(dat = "list.min",
       list.sp <<- list.sp
 
     }
+
+## S4 method for class 'RasterStackBrick':
+KML((list.ras$temperature, filename = "mintemp.kml", time=NULL, col=rev(terrain.colors(255)), maxpixels=100000, blur=1, zip=”, overwrite=FALSE, ...))

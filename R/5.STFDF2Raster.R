@@ -35,7 +35,13 @@
             }
             names(s) <- x@endTime
             list.ras[[j]] <- s
+            s <<- s
         }
         names(list.ras) <- units
         list.ras <<- list.ras
     }
+
+    s <- setZ(s, x@time, name='time')
+    
+    x <- kml_layer.RasterBrick(s)
+    
