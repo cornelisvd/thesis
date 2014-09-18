@@ -131,14 +131,4 @@ load.sensors <- function (format = "%d/%m/%y %I:%M:%S %p",  # Date format
     save(list.ok, file = "list.ok.Rdata") 
 }
 
-x   <- unlist(strsplit(as.character(obs.ok$Date), " "))
-x   <- unlist(strsplit(as.character(x), ":"))
-b <- x[seq(2, length(x), 4)]
-obs.ok$Date <- b
-meantemp <- data.frame(c(0:23))
-for (i in 2:length(obs.ok)){
-    x <- aggregate(obs.ok[i], by = list(obs.ok$Date), FUN = mean, na.rm=TRUE)
-    meantemp <- cbind(meantemp, x[,2])
-}
-names(meantemp) <- c("Hour", names(obs.ok[2:length(obs.ok)]))
 
