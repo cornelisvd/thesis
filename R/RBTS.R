@@ -1,52 +1,50 @@
-##------------------------------STFDF to Raster-------------------------------##
+##----------------------------STFDF to RasterBrick----------------------------##
 ## This function converts STFDF objects ({spacetime} - spatio-temporal data with 
-## full space-time grid) to RasterStack or RasterBrick objects for calculations.
-## This version is adjusted for the iButtons, a default version is also created.
-##--------------------------------v.26-08-14----------------------------------##
+## full space-time grid) to RasterBrick objects for calculation & visualization.
+## The resulting RasterBrick object is easily animated with the plotKML package.
+##--------------------------------v.19-09-14----------------------------------##
 
 # Load libraries
-library(raster)
-setwd ("~/thesis/data/")   
-load("mean.sp.Rdata")
+    library(raster)
+    library(spacetime)
+    library(plotKML)
+# Load STFDF for example
+    load("tempSTFDF.Rdata")
 
 # Function to create raster from the STFDF file
-create.rast <- function (x = stfdf) 
-{   
-    
-    # This can be used to create multiple RasterStacks for different units       
-    # ubol <- c(temperature, humidity)
-    # unit <- which(ubol == TRUE)
-    unit <- c(1,2)
-    list.ras <- list() 
-    
-    for (j in unit) {
-        x <- unlist(list.sp[[j]])
-        dim <- x@sp@grid@cells.dim 
-        ex <- extent(x@sp@bbox)
-        n <- length(x@time)
-        r <- raster(ex, nrows = dim[1], ncols = dim[2])
-        i <- x@sp@grid.index
-        v <- length(x@data$var1.pred)/n
-        s <- list()
-        b <- seq(from = 1, to = 1 + n*v, by = v)
-        e <- seq(from = v, to = n*v, by = v)
+    create.rast <- function (obj = stfdf,                 ## The STFDF object
+                          brickx = TRUE,                  ## Create RasterBrick
+                          lower  = NA,                    ## Lower data limit                            
+                          upper  = NA,                    ## Upper data limit
+                          tformat = "%Y-%m-%d %H:%M:%S")  ## Could be left out?
+    {   
+        ## Extracting paramters from the STFDF
+        dim <- obj@sp@grid@cells.dim 
+        ex  <- extent(obj@sp@bbox)
+        n   <- length(obj@time)
+        r   <- raster(ex, nrows = dim[1], ncols = dim[2])
+        i   <- obj@sp@grid.index
+        v   <- length(obj@data$var1.pred)/n
+        a   <- list()
+        b   <- seq(from = 1, to = 1 + n*v, by = v)
+        e   <- seq(from = v, to = n*v, by = v)
         
+        ## Looping the STFDF layers in a list. If this is done directly in a 
+        ## stack or brick, it always results in a RasterStack for some reason.
         for (l in 1:n) {
-            r[i] <- x@data$var1.pred[b[l]:e[l]]
-           
-            s[[l]] <- r 
+            r[i] <- obj@data$var1.pred[b[l]:e[l]]
+            a[[l]] <- r 
         }
-        names(s) <- x@endTime
-        
-        list.ras[[j]] <- s
+        ## Thresholds can be set
+        fun <- function(x) { x[x < lower | x > upper] <- NA; return(x) }
+                
+        ## Create a RasterBrick from the STFDF with the time as z-value
+        b <- brick(a)
+        b <- calc(b, fun)
+        proj4string(b) <- proj4string(obj)
+        t <- rownames(as.data.frame(obj@time))
+        b <- setZ(b, as.POSIXct(t, format = tformat), name = "time")
+        names(b) <- t
+        brickST <<- b
     }
-
-    list.ras <<- list.ras
-      
-}  
-
-x22 <- brick(list.ras[[1]])
-psx <- rownames(as.data.frame(x@time))
-x22 <- setZ(x22, as.POSIXct(psx), name='time')
-proj4string(x22) <- CRS("+proj=longlat +datum=WGS84")
-kml(x22, colour_scale=SAGA_pal[[1]])
+## kml(brickST, colour_scale=SAGA_pal[[1]])       ## animate KML in Google Earth
