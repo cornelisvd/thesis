@@ -9,6 +9,7 @@
     library(spacetime)
     library(plotKML)
 # Load STFDF for example
+    setwd ("~/thesis/data/")
     load("tempSTFDF.Rdata")
 
 # Function to create raster from the STFDF file
@@ -47,4 +48,5 @@
         names(b) <- t
         brickST <<- b
     }
-## kml(brickST, colour_scale=SAGA_pal[[1]])       ## animate KML in Google Earth
+## plot KML as animation in Google Earth    
+## kml(brickST, colour_scale = SAGA_pal[[1]], alpha = 0.50, overwrite = TRUE) 
