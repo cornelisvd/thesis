@@ -15,8 +15,8 @@ library(gstat)
 setwd ("~/thesis/data/")   
 
 # Create spatio-temporal data-frames
-agg.spatial <- function(dat = "list.min",
-                        dat2 = list.min) 
+agg.spatial <- function(dat = "list.max",
+                        dat2 = list.max) 
     {
     
     load(paste(dat, ".Rdata", sep="" ))
@@ -60,13 +60,13 @@ agg.spatial <- function(dat = "list.min",
         prd.grd = STF(grt, tgrd)
         
         ### Create a distance to be used in the variogram
-        dist <- suppressWarnings(max(gDistance(l, byid=TRUE)*111000))
+        dist <- suppressWarnings(max(gDistance(l, byid=TRUE))*111000)
         
         ### Select the parameters for the actual interpolation
         v <-  vgmST("separable", 
                     space = vgm(1, "Sph", dist), 
-                    time  = vgm(1, "Lin", length(value$Hour) * 60), 
-                    sill  = 0.1)
+                    time  = vgm(1, "Lin", length(value$Hour)), 
+                    sill  = 1)
         
         ### Create the actual STFDF object and add to list
         stfdf <<- krigeST(values ~ 1, st, prd.grd, v) 
@@ -77,6 +77,8 @@ agg.spatial <- function(dat = "list.min",
       list.sp <<- list.sp
 
     }
-
+ptm <- proc.time()
+agg.spatial()
+proc.time() - ptm
 ## S4 method for class 'RasterStackBrick':
 KML((list.ras$temperature, filename = "mintemp.kml", time=NULL, col=rev(terrain.colors(255)), maxpixels=100000, blur=1, zip=”, overwrite=FALSE, ...))

@@ -268,8 +268,6 @@ p1 <- rowMeans(test1.pipes.temp)
 p2 <- rowMeans(test2.white.temp)
 p3 <- rowMeans(test3.white.temp)
 p4 <- rowMeans(test4.nothing.temp)
-p4 <- rowMeans(test5.nothing.temp)
-p4 <- rowMeans(test4.nothing.temp)
 p5 <- rowMeans(test5.nothing.temp)
 pipedata <- c(p1,p2,p3,p4,p5)
 
