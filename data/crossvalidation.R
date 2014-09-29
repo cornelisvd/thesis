@@ -30,6 +30,7 @@ load("value.Rdata")
         pred.LOO[[i]] <- brickST
         }
     pred.LOO[[1]] <- NULL
+    save(pred.LOO, file = "pred.LOO.max.Rdata")
 
 ## Extract the predicted value of the left-out sensor from the relevant object. 
     pred.df <- c() 
@@ -43,4 +44,11 @@ load("value.Rdata")
     pred.res <- pred.df - value[2:length(value)]
     pred.rmse <- round(sqrt(mean(pred.res^2, na.rm=TRUE)),3)
 
-load("pred.LOO.min.Rdata")
+dist <- c()
+d <- gDistance(pts, byid=T)*111000
+for (i in 1:ncol(d)){
+    o <- mean(sort(d[,i])[2])
+    dist <- c(dist,o)
+}
+xl <- as.data.frame(l)
+   

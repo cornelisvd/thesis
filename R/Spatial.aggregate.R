@@ -15,8 +15,8 @@ library(gstat)
 setwd ("~/thesis/data/")   
 
 # Create spatio-temporal data-frames
-agg.spatial <- function(dat = "list.max",
-                        dat2 = list.max) 
+agg.spatial <- function(dat = "list.min",
+                        dat2 = list.min) 
     {
     
     load(paste(dat, ".Rdata", sep="" ))
