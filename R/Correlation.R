@@ -18,8 +18,29 @@
     z <- as.data.frame(l) ## spatialaggregate function
     LAI  <- raster("/home/kees/thesis/data/GIS/LAI_new_UTM17N_2m_geotif.tif") 
     veg <- extract(LAI, pts, buffer = 25, fun = mean)
-
+    lidara1 <- read.table("/media/kees/UUI/turrialba.lce.txt")
+    lidara2 <- read.table("/media/kees/UUI/turrialba_lce.txt")
+    proj  = "+proj=longlat+datum=WGS84"
+    lidara1[1] <- lidara1[1] - 360
+    lidara2[1] <- lidara2[1] - 360
+    names(lidara1) <- c("x", "y", "z")
+    names(lidara2) <- c("x", "y", "z")
+    e <- extent(lidara1[,1:2])
+    r <- raster(e, ncol = 1000, nrow = 1000) 
+    lidar1 <- rasterize(lidara1[,1:2], r, lidara1[,3],  fun = mean)
+    lidar2 <- rasterize(lidara2[,1:2], r, lidara2[,3],  fun = mean)
+    proj4string(lidar1) <- CRS("+proj=longlat +datum=WGS84")
+    proj4string(lidar2) <- CRS("+proj=longlat +datum=WGS84")
+    lidar1 <- crop(lidar1, grt)
+    lidar2 <- crop(lidar2, grt)
+    lidar1 <- disaggregate(lidar1, fact = 10, method = "bilinear")
+    lidar2 <- disaggregate(lidar2, fact = 10, method = "bilinear")
+    height <- lidar2 - lidar1
+    vegh <- extract(height, pts, buffer = 25, fun = mean)
+    
+    
 alt <- as.numeric(z$Z)
+    alt <- alt/1000
 
 cor.meanT <- c()
     for (i in 1:nrow(meantemp)) {
@@ -56,3 +77,96 @@ veg.maxT <- c()
         c <- cor(as.numeric(maxtemp[i,]), veg)
         veg.maxT <- append(veg.maxT, c)
     }
+    
+    vegh.meanT <- c()
+    for (i in 1:nrow(meantemp)) {
+        c <- cor(as.numeric(meantemp[i,]), vegh, use = "complete.obs")
+        vegh.meanT <- append(vegh.meanT, c)
+    }
+    
+    vegh.minT <- c()
+    for (i in 1:nrow(mintemp)) {
+        c <- cor(as.numeric(mintemp[i,]), vegh, use = "complete.obs")
+        vegh.minT <- append(vegh.minT, c)
+    }   
+    
+    vegh.maxT <- c()
+    for (i in 1:nrow(maxtemp)) {
+        c <- cor(as.numeric(maxtemp[i,]), vegh, use = "complete.obs")
+        vegh.maxT <- append(vegh.maxT, c)
+    }
+    
+    hs <- c()
+    for (n in 1:nlayers(sunstack)){
+        h <- extract(sunstack[[n]], pts, buffer = 25, fun = mean)
+        hs <- rbind(hs, h)
+    }
+    
+    ds <- c()
+    for (n in 1:nlayers(sunstack)){
+        d <- extract(sunstack[[n]], pts, buffer = 25, fun = mean)
+        ds <- rbind(ds, d)
+    }
+    
+    cs <- c()
+    for (n in 1:nlayers(sunstack)){
+        d <- extract(sunstack[[n]], pts, buffer = 25, fun = mean)
+        cs <- rbind(cs, d)
+    }
+    
+    hs.meanT <- c()
+    for (i in 1:nrow(meantemp)) {
+        c <- cor(as.numeric(meantemp[i,]), hs[i,], use = "complete.obs")
+        hs.meanT <- append(hs.meanT, c)
+    }
+    
+    hs.minT <- c()
+    for (i in 1:nrow(mintemp)) {
+        c <- cor(as.numeric(mintemp[i,]), hs[i,], use = "complete.obs")
+        hs.minT <- append(hs.minT, c)
+    }
+    
+    hs.maxT <- c()
+    for (i in 1:nrow(maxtemp)) {
+        c <- cor(as.numeric(maxtemp[i,]), hs[i,], use = "complete.obs")
+        hs.maxT <- append(hs.maxT, c)
+    }
+    
+    ds.meanT <- c()
+    for (i in 1:nrow(mintemp)) {
+        c <- cor(as.numeric(meantemp[i,]), ds[i,], use = "complete.obs")
+        ds.meanT <- append(ds.meanT, c)
+    }
+    
+    ds.minT <- c()
+    for (i in 1:nrow(mintemp)) {
+        c <- cor(as.numeric(mintemp[i,]), ds[i,], use = "complete.obs")
+        ds.minT <- append(ds.minT, c)
+    }
+    
+    ds.maxT <- c()
+    for (i in 1:nrow(maxtemp)) {
+        c <- cor(as.numeric(maxtemp[i,]), cs[i,], use = "complete.obs")
+        ds.maxT <- append(ds.maxT, c)
+    }
+    
+    cs.meanT <- c()
+    for (i in 1:nrow(mintemp)) {
+        c <- cor(as.numeric(meantemp[i,]), sun, use = "complete.obs")
+        cs.meanT <- append(cs.meanT, c)
+    }
+    
+    cs.minT <- c()
+    for (i in 1:nrow(mintemp)) {
+        c <- cor(as.numeric(mintemp[i,]), sun, use = "complete.obs")
+        cs.minT <- append(cs.minT, c)
+    }
+    
+    cs.maxT <- c()
+    for (i in 1:nrow(maxtemp)) {
+        c <- cor(as.numeric(maxtemp[i,]), sun, use = "complete.obs")
+        cs.maxT <- append(cs.maxT, c)
+    }
+    
+    newrow <- c(0)
+    cs <- rbind(newrow,cs)
