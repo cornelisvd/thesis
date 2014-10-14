@@ -26,7 +26,7 @@ source(".SunPosition.R")
 # Function to create a map of the sun & shadow during a given day
 shadow.map <- function(folder    = "data",
                        dem_name  = "dem_cr.tif",       # DEM or raster
-                       kml_name  = "Aquiares2.kml",    # KML of the area
+                       kml_name  = "AquiaresPoly.kml",    # KML of the area
                        year      = 2014,               # Year 
                        month     = 8,                  # Month   
                        day       = 29,                 # Day    

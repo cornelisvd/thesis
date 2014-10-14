@@ -1,18 +1,18 @@
 ##---------------------------------aggregate----------------------------------## 
 
-    setwd ("~/thesis/data/")   
-    load("list.ok.Rdata")
-    
-    meanD <- mean(list.ok$temperature$Date)
-    minD  <- min(list.ok$temperature$Date)
-    maxD  <- max(list.ok$temperature$Date)
+    #setwd ("~/thesis/data/")   
+    load("list.cor.Rdata")
+    #names(list.cor) <- c("temperature", "humidity")
+    meanD <- mean(list.cor$temperature$Date)
+    minD  <- min(list.cor$temperature$Date)
+    maxD  <- max(list.cor$temperature$Date)
     Date  <- unlist(strsplit(as.character(meanD), " "))
 
 ##--------------------------------temperature---------------------------------##
 
-    temp    <- list.ok$temperature
-    t.cor   <- subset(temp, temp$Date > as.POSIXct("2014-08-07") & 
-                          temp$Date < as.POSIXct("2014-09-05"))
+    temp    <- list.cor$temperature
+    t.cor   <- subset(temp, temp$Date > as.POSIXct("2014-08-06") & 
+                          temp$Date < as.POSIXct("2014-09-06"))
     h   <- unlist(strsplit(as.character(t.cor$Date), " "))
     h   <- unlist(strsplit(as.character(h), ":"))
     b <- h[seq(2, length(h), 4)]

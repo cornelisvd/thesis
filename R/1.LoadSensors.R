@@ -12,6 +12,8 @@
     rm (list = ls(all = TRUE))     
     library(zoo)
     library(lubridate)   
+    library(splines)
+    library(quantreg)
         
 # Set the working directory
     setwd ("~/thesis/data/")   

@@ -1,5 +1,5 @@
 sunPosition <- function(year, month, day, hour=12, min=0, sec=0,
-                        lat=46.5, long=6.5) {
+                        lat=46, long=6.5) {
     
     twopi <- 2 * pi
     deg2rad <- pi / 180

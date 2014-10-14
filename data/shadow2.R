@@ -56,7 +56,7 @@ shadow.map <- function(folder    = "data",
     ##  Crop DEM by new bounding box and disaggregate by a certain factor
     dem      <-  crop(dem, bb)   
     dem      <-  disaggregate(dem, fact = 10, method = 'bilinear')
-    long     <-  lon
+    demlong     <-  lon
     slope    <-  terrain(dem, opt='slope')
     aspect   <-  terrain(dem, opt='aspect')
     col      <-  rev(brewer.pal(11,"RdYlBu"))
@@ -66,18 +66,26 @@ shadow.map <- function(folder    = "data",
     t <- data.frame()
     for (hour in 7:23) { 
         # for 10 minute-interval uncommemt two lines below
-        m <- c(0, 10, 20, 30, 40, 50) 
+        m <- 0 # c(0, 10, 20, 30, 40, 50) 
         for (min in m) {
             t <- c(t, sunPosition(year, month, day, hour, min, 0, lat, long))
         }
     }
     for (hour in 0:6) { 
         # for 10 minute-interval uncommemt two lines below
-        m <- c(0, 10, 20, 30, 40, 50) 
+        m <- 0 # c(0, 10, 20, 30, 40, 50) 
         for (min in m) {
             t <- c(t, sunPosition(year, month, 23, hour, min, 0, lat, long))
         }
     }
+    
+    i <- data.frame()
+    for (s in 1:length(l)){
+        i <-  c(i, insolation(90-50, JDymd(year,month,day), 
+                   1100, 25, 95, 300, 0.02, 0.2))
+        }
+    
+    
     ## Create a RasterStacks with the different shadows (hillshade and cast)
     r         <-  raster()
     sunstack  <-  stack()

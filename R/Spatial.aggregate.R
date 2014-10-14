@@ -69,8 +69,8 @@ agg.spatial <- function(dat = "list.min",
                     sill  = 1)
         
         ### Create the actual STFDF object and add to list
-        stfdf <<- krigeST(values ~ 1, st, prd.grd, v) 
-        list.sp[[i]] <- stfdf
+        stfdf <<- krigeST(formula=values~1, data=st, prd.grd, v) 
+        slist.sp[[i]] <- stfdf
     }
     
     ## Add names to the list and include the different units

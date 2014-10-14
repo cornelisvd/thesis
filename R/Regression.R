@@ -87,8 +87,9 @@ x = c(10, 15, 20, 25, 30, 35, 40)
     comp <- data.frame(stationdata, pipedata)
     
           
-    plot(comp$pipedata,comp$stationdata,xlab = "Shield temperature", 
-         ylab = "Temperature in weather station",type="n")
+    plot(comp$pipedata,comp$stationdata,xlab = "Shield temperature (C)", 
+         ylim = c(19,35), xlim = c(19,35),
+         ylab = "Temperature in weather station (C)",type="n")
     points(comp$pipedata,comp$stationdata,cex = 0.2, pch = 19, col = "grey75")
     X <- model.matrix(comp$stationdata ~ bs(comp$pipedata))
      tau <- c(0.75)
@@ -168,8 +169,9 @@ pipedata    <- c(t1.p.h, t2.w.h, t3.w.h, t4.n.h, t5.n.h)
 comp <- data.frame(stationdata, pipedata)
 
 
-plot(comp$pipedata,comp$stationdata,xlab = "Shield humidity", 
-     ylab = "Humidity in weather station",type="n")
+plot(comp$pipedata,comp$stationdata,xlab = "Shield humidity (% RH)", 
+     xlim = c(50,100), ylim = c(50,100),
+     ylab = "Humidity in weather station (% RH)",type="n")
 points(comp$pipedata,comp$stationdata,cex = 0.2, pch = 19, col = "grey75")
 X <- model.matrix(comp$stationdata ~ bs(comp$pipedata))
 tau <- c(0.25)
