@@ -1,8 +1,8 @@
 ##---------------------------------aggregate----------------------------------## 
 
-    #setwd ("~/thesis/data/")   
+    setwd ("~/thesis/data/")   
     load("list.cor.Rdata")
-    #names(list.cor) <- c("temperature", "humidity")
+    names(list.cor) <- c("temperature", "humidity")
     meanD <- mean(list.cor$temperature$Date)
     minD  <- min(list.cor$temperature$Date)
     maxD  <- max(list.cor$temperature$Date)

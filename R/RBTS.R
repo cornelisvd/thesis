@@ -41,14 +41,14 @@
         fun <- function(x) { x[x < lower | x > upper] <- NA; return(x) }
                 
         ## Create a RasterBrick from the STFDF with the time as z-value
-        b <- brick(a)
-        b <- calc(b, fun)
-        proj4string(b) <- proj4string(obj)
-        t <- rownames(as.data.frame(obj@time))
-        b <- setZ(b, as.POSIXct(t, format = tformat), name = "time")
-        names(b) <- t
-        brickST <<- b
+        b <<- brick(a)
+        #b <- calc(b, fun)
+        #proj4string(b) <- proj4string(obj)
+        #t <- rownames(as.data.frame(obj@time))
+        #b <- setZ(b, as.POSIXct(t, format = tformat), name = "time")
+        #names(b) <- t
+        #brickST <<- b
     }
 ## plot KML as animation in Google Earth    
-kml(brickST, colour_scale = SAGA_pal[[1]], alpha = 0.50, overwrite = TRUE) 
+#kml(brickST, colour_scale = SAGA_pal[[1]], alpha = 0.50, overwrite = TRUE) 
     

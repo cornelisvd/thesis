@@ -38,8 +38,8 @@ shadow.map <- function(folder    = "data",
     
     ## Download DEMs at http://srtm.csi.cgiar.org/, create KML in Google Earth
     dem     <- raster(paste(folder, "/", dem_name, sep = "")) 
-    poly    <- readOGR(paste(folder, "/", "AquiaresPoly.kml", sep = ""), 
-                       "AquiaresPoly") 
+    poly    <- readOGR(paste(folder, "/", "Aquiares.kml", sep = ""), 
+                       "Aquiares") 
     border <<- poly
     
     ## Calculate the bounding box and convert to matrix
