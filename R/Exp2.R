@@ -271,6 +271,25 @@ p4 <- rowMeans(test4.nothing.temp)
 p5 <- rowMeans(test5.nothing.temp)
 pipedata <- c(p1,p2,p3,p4,p5)
 
+ggplot(pipe, aes(x=1:length(pipedata), y=pipe$pipedata)) + 
+    geom_line(colour = "red", size = 1, alpha = 0.5) +
+    theme_set(theme_gray(base_size = 18)) +
+    geom_line(aes(y=pipe$stationdata), colour = "blue", size = 1, alpha = 0.5) +
+    ylab("Temperature (degrees Celsius") + xlab("Time (minutes)")
+
+
+theme_set(theme_gray(base_size = 18)) +
+        xlab("Date") + ylab(ylabel) + ylim(ylimit) # +
+    #          theme(legend.position="none", panel.background = element_rect(fill = 'white'),
+    #                panel.border = element_rect(color="black", size = 0.2, fill = NA),
+    #                plot.title = element_text(vjust=1.8, face="bold"),
+    #                axis.title.x=element_text(vjust=0.01))
+    for (i in 2:length(layer)) {
+        p <- p + geom_line(y= layer[,i], colour = "black", alpha = 0.2)
+    }
+    return(p)
+}
+
 turkey <- as.vector(smooth(pipedata))
 splines <- smooth.spline(pipedata, spar = 0.5)
 splines <- splines$y

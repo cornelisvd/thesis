@@ -18,8 +18,8 @@
 ##------------------------------Minute linear----------------------------------##
        
     exp.temp <- list()
-    exp.humd <- list(
-        )
+    exp.humd <- list()
+    
     for (k in 1:length(exp.obs)) {
         exp.time(type = exp.obs[k], unit = "Temp")
         exp.temp[[k]] <- est.obs
@@ -34,17 +34,13 @@
     names(exp.humd) <- exp.obs
   
     layer <- exp.temp$Type1
-    plotlayers(ylabel = "degrees Celsius", ylimit = c(15, 30), 
-               title = "1A. Type 1 (lower resolution) temperature observations") 
+    plotlayers(ylabel = "Degrees Celsius", ylimit = c(15, 30)) 
     layer <- exp.temp$Type2
-    plotlayers(ylabel = "degrees Celsius", ylimit = c(15, 30),
-               title = "1B. Type 2 (higher resolution) temperature observations") 
+    plotlayers(ylabel = "Degrees Celsius", ylimit = c(15, 30))
     layer <- exp.humd$Type1
-    plotlayers(ylabel = "relative humidity (%)", ylimit = c(50, 100),
-               title = "2A. Type 1 (lower resolution) humidity observations") 
+    plotlayers(ylabel = "Relative Humidity (%)", ylimit = c(50, 100)) 
     layer <- exp.humd$Type2
-    plotlayers(ylabel = "relative humidity (%)", ylimit = c(50, 100),
-               title = "2B. Type 2 (higher resolution) humidity observations") 
+    plotlayers(ylabel = "Relative Humidity (%)", ylimit = c(50, 100))
     
     type1.matrix.t <- as.matrix(exp.temp$Type1)
     type2.matrix.t <- as.matrix(exp.temp$Type2)
@@ -362,22 +358,27 @@
 
     histlayers <- function() {
         m <- ggplot(minute.data, aes(x=minute.data[,1])) +
-            geom_density(aes(y = ..density..,  color="1- Minute data")) + 
+            geom_histogram(aes(y = ..density..,  fill= "grey20", color="1- Minute data")) + 
+            theme_grey(base_size = 25) +
             xlim(c(15,32)) + xlab("degrees Celsius") +
-            ggtitle("Figure 1: Density plots of tempearature observations") +
-            theme(panel.background = element_rect(fill = 'white'),
-                  panel.border = element_rect(color="black", size = 0.1, fill = NA),
-                  plot.title = element_text(vjust=1.8, face="bold"),
-                  axis.title.x=element_text(vjust=0.01)) +
+           # ggtitle("Figure 1: Density plots of tempearature observations") +
+            #theme(panel.background = element_rect(fill = 'white'),
+             #     panel.border = element_rect(color="black", size = 0.1, fill = NA),
+              #    plot.title = element_text(vjust=1.8, face="bold"),
+               #   axis.title.x=element_text(vjust=0.01)) +
             geom_density(data = hour.data, aes(x = hour.data[,1],
              y = ..density.., color="1-Hour normal/linear"), binwidth = 0.5, linetype="dashed") +
             geom_density(data = hour.data, aes(x = hour.data[,8],
              y = ..density.., color="2-Hour random/spline"), binwidth = 0.5, linetype="longdash") +
-            scale_color_manual(name  ="Legend", 
-                               values=c("grey85", "grey60", "grey10")) 
+            scale_color_manual(name  ="Legend"))#, 
+                              # values=c("grey10", "grey10", "grey10")) 
         return(m)
     }
     histlayers()
+    
+ggplot(minute.data, aes(x=minute.data[,1])) +
+        geom_histogram(aes(col="black")) + 
+        theme_grey(base_size = 25)
     
     x1 <- as.data.frame(type2.matrix.t.h)
     x2 <- as.data.frame(as.vector(smooth(rowMeans(type2.matrix.t.h))))

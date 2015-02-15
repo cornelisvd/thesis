@@ -1,0 +1,111 @@
+---
+title: "Curriculum Vitae"
+author: "Cornelis Lambert 'Kees' van Duijvendijk"
+geometry: margin=0.75in
+output: pdf_document
+---
+
+\centerline{------------------------------------------------}
+*\centerline{Contact information:}* \
+\small
+\centerline{Address: Landfogedvej 3, 1 TH, 2400, Copenhagen NV, Denmark} \
+\centerline{E-mail:  \emph{\href{vanduyvendijk@gmail.com}{vanduyvendijk@gmail.com}}, 
+Tel. (Denmark): \emph{\href{tel:+4542686567}{+ 45 42 68 65 67}}}
+\centerline{Date of birth: 19 May 1984, Nationality: Dutch, Skype ID: \href{skype:kvanduijvendijk}{kvanduijvendijk}}\
+\normalsize
+\newline
+\centerline{------------------------------------------------}
+
+\pagenumbering{gobble}
+
+___Profile___: *Multidisciplinary researcher/consultant, covering issues related to water management, climate-smart agriculture & environmental modelling. Good in teams and working independently, with multicultural experience. Currently in the process of finishing a 2\textsuperscript{nd} Master of Science (GIS & environmental modelling).* \
+\newline
+\centerline{------------------------------------------------}
+
+
+*\centerline{Work experience}*
+\newline
+
+__Bioversity International__ (CGIAR - Bioversity / IPGRI), Turrialba, Costa Rica (*June & July*) & home-based<p>
+> *June 2014 – December 2014*: Researcher (MSc thesis), creating and modelling a network of micro-sensors: <p>
+- During this research a network of 100 micro-sensors (measuring temperature & humidity) has been created in a large coffee plantation in Costa Rica. The project was part of Bioversity International's [*'Seeds for Needs'*](http://www.bioversityinternational.org/research-portfolio/adaptation-to-climate-change/seeds-for-needs/) initiative,
+and had as objective to link local climatic data to field trials. 
+<p> \
+
+__Research Program on Climate Change, Agriculture
+and Food Security__ (CCAFS), Copenhagen, Denmark <p>
+> *July 2013 – September 2013*: Consultant for the CGIAR - [CCAFS Big Facts website](http://ccafs.cgiar.org/bigfacts2014/ "Big Facts website (2014)"): <p>
+- The main task during this consultancy was to compile, select and verify information on the impact of climate change on agriculture and food security at both the regional and global level.<p> \
+
+__Food and Agriculture Organization of the United Nations__ (FAO) Representation in India, Delhi, India <p>
+> *May 2012 – October 2012*: Associate Professional Officer: Agricultural Biodiversity & Ecosystem Services: <p>
+- Organizing workshops focused at sustainable crop production intensification in India, as well as assessing the potential of existing participatory extension approaches (Farmer Field Schools). <p>
+- Working on projects related to agricultural biodiversity and the
+System of Rice Intensification (SRI). <p> \
+
+__Food and Agriculture Organization of the United Nations__ (FAO) Headquarters, Rome, Italy <p>
+> *October 2009 – April 2012*: Associate Professional Officer: Agricultural Biodiversity & Ecosystem Services: <p>
+- Assisting in the preparation of documents and websites related to sustainable production intensification
+(SCPI) and agricultural biodiversity. Contributing to publications related to [sustainable agriculture](http://www.fao.org/docrep/014/i2215e/i2215e.pdf "Save & Grow"), and [agricultural biodiversity](http://www.fao.org/fileadmin/templates/biodiversity_paia/PAR-FAO-book_lr.pdf "Biodiversity for food and agriculture"). Helping in the organization of several expert meetings/workshops. <p> \
+
+__International Union for the Conservation of Nature__ (IUCN) USA - Multilateral Office, Washington DC, USA <p>
+> *November 2008 – March 2009*: Research fellow (intern) focusing on national and global biodiversiy policy: <p>
+- Evaluating policies in different environmental fields (biodiversity, water & agriculture).
+
+*\centerline{Education}*
+\newline
+
+__Lund University__ (Sweden) & __Univeristy of Twente - ITC__ (The Netherlands), distance learning \par
+\setlength{\parindent}{7ex}
+*2013 - December 2014 (expected)*: Master of Science in Geographical Information Science and Earth Observation<p>
+- Master of Science focusing on GIS and environmental modelling, including courses on climate change, biodiversity, algorithms & statistics. Fieldwork for the thesis has been conducted in Costa Rica. See the [*iGEON*](http://www.igeon.eu/ "iGEON website") website. \par
+
+\setlength{\parindent}{0ex}
+
+__Wageningen University & Research centre__ (WUR), Wageningen, The Netherlands \par
+\setlength{\parindent}{7ex}
+Bachelor *2002 – 2005* and  Master *2006 – 2009* of Science in International Land- and Water Management <p>
+- Specialization: Irrigation- and Water Management
+- Thesis (2008): [*Valuation of the rice sector in the Quang Dien district, Vietnam*](http://library.wur.nl/WebQuery/clc/1910314 "MSc Thesis"). Research was conducted on the social, economic & ecological value of water-related activities (rice & aquaculture) in a wetland area in Central Vietnam. Five months of fieldwork were conducted in Vietnam. \par
+
+\setlength{\parindent}{0ex}
+\centerline{------------------------------------------------}
+*\centerline{Courses and extracurricular activities}*
+\newline
+
+__Africa Rice Center__ (CGIAR - AfricaRice), Cotonou, Benin \par
+\setlength{\parindent}{7ex}
+*May 2011 – June 2011*: Participant in a course on capacity development for agronomic work in rice  \
+\newline
+__International Rice Research Institute__ (CGIAR - IRRI), Los Baños, Philippines \par
+\setlength{\parindent}{7ex}
+*May 2010 –June 2010*: Participant in the three week course ‘Rice: Research to Production’ \
+\newline
+__Student Association ‘WSV Ceres’__, Wageningen, The Netherlands \par
+\setlength{\parindent}{7ex}
+*May 2005 –June 2006*: Full-time board member, treasurer \
+\newline
+\setlength{\parindent}{0ex}
+\centerline{------------------------------------------------}
+
+*\centerline{Additional skills}*
+\newline
+
+__Computer__: Programming experience includes R, Matlab & Python & JavaScript (see [*GitHub account*](https://github.com/cornelisvd/ "GitHub account")). Software experience includes ArcGIS, QGIS, SPSS and Microsoft Office. Experience with Windows & Linux operating systems.
+\newline
+\newline
+__Languages:__ <p>
+\small <p>
+|               |  |*Speaking*      | *Understanding*  | *Reading*      | *Writing*      |
+| ------------- |--|:-------------: |:-------------:   |:-------------: |:-------------: |
+| **Dutch**     |  | Excellent      | Excellent        | Excellent      | Excellent      |
+| **English**   |  | Excellent      | Excellent        | Excellent      | Excellent      |
+| **German**    |  | Intermediate   | Good             | Good           | Intermediate   |
+| **French**    |  | Intermediate   | Intermediate     | Good           | Intermediate   |
+| **Spanish**   |  | Intermediate   | Intermediate     | Good           | Intermediate   |
+| **Danish**    |  | Intermediate   | Intermediate     | Good           | Basic          |
+| **Italian**   |  | Basic          | Intermediate     | Intermediate   | Basic          |
+
+\normalsize
+\centerline{------------------------------------------------}
+*\centerline{References are available upon request}*

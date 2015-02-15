@@ -1,7 +1,7 @@
 ##---------------------------------aggregate----------------------------------## 
 
     setwd ("~/thesis/data/")   
-    load("list.cor.Rdata")
+    #load("list.cor.Rdata")
     names(list.cor) <- c("temperature", "humidity")
     meanD <- mean(list.cor$temperature$Date)
     minD  <- min(list.cor$temperature$Date)
@@ -11,12 +11,12 @@
 ##--------------------------------temperature---------------------------------##
 
     temp    <- list.cor$temperature
-    t.cor   <- subset(temp, temp$Date > as.POSIXct("2014-08-06") & 
-                          temp$Date < as.POSIXct("2014-09-06"))
-    h   <- unlist(strsplit(as.character(t.cor$Date), " "))
+    t.cor   <- subset(temp, temp[,1] >= as.POSIXct("2014-08-06") & 
+                          temp[,1] < as.POSIXct("2014-09-06"))
+    h   <- unlist(strsplit(as.character(t.cor[,1]), " "))
     h   <- unlist(strsplit(as.character(h), ":"))
     b <- h[seq(2, length(h), 4)]
-    t.cor$Date <- b
+    t.cor[,1] <- b
         
 ##---------------------------------cleaning-----------------------------------##
     
@@ -39,7 +39,7 @@
     meantemp <- data.frame(c(0:23))
             for (i in 2:l){
                 x <- aggregate(t.cor[i], 
-                               by = list(t.cor$Date), 
+                               by = list(t.cor[,1]), 
                                FUN = mean, na.rm=TRUE)
                 meantemp <- cbind(meantemp, x[,2])
             }

@@ -61,4 +61,46 @@ list.stfdf <- list()
 ptm <- proc.time()
 load.sensors()
 proc.time() - ptm
+
+rain <- raster("/home/kees/thesis/data/GIS/rain.tif") 
+
+    # Load the dataset with the 25 most produced crops in Costa Rica
+cropdata <- read.csv("/home/kees/thesis/data/cropdata.csv", header=TRUE)
+    cropdata[is.na(cropdata)] <- 0
+    # Create an empty stack for the temperature rasters
+
+    cropstack <- stack()
     
+                                                              ptm <- proc.time()
+    # Loop through the top 25 crops in Costa Rica to find their suitability
+    for (i in 1:nrow(cropdata)){
+        
+        # Analyze the suitability of the crop to the annual rainfall
+        rain_abs <- rain > cropdata$RABMN[i] & rain < cropdata$RABMX[i]
+        
+        # Analyze the suitability of the crop to the different altitudes
+        altd_abs <- dem > cropdata$ALTMN[i] & dem < cropdata$ALTMX[i]
+        
+        # Loop throught temperature data of the period to assess the thresholds
+        tempstack <- stack()
+        for (n in 1:nlayers(temp)){
+            temp_all <- temp[[n]] > cropdata$TABMN[i] & temp[[n]] < cropdata$TABMX[i]
+            tempstack <- addLayer(tempstack, temp_all)
+        }
+
+    temp_abs <- calc(tempstack, mean)
+    suitability <- rain_abs + temp_abs + altd_abs
+    # Stack the layers into on object    
+    cropstack <- addLayer(cropstack, suitability)
+    }
+                                                               proc.time() - ptm
+
+
+min_crop <- c()
+for (l in 1:nlayers(cropstack)){
+    min_crop <- c(min_crop, (min(cropstack[[l]]@data@values, na.rm=TRUE)))
+}
+# altd_abs <- 
+temp_abs <- 
+}
+ 

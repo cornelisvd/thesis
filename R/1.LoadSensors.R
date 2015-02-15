@@ -12,8 +12,8 @@
     rm (list = ls(all = TRUE))     
     library(zoo)
     library(lubridate)   
-    library(splines)
     library(quantreg)
+    library(splines)
         
 # Set the working directory
     setwd ("~/thesis/data/")   
@@ -71,27 +71,27 @@
                                       header = TRUE), select = c(time, val)) 
                 
                 
-                if (i == "temperature") {        
-                load("~/thesis/data/Experiments/fit.T.Rdata")
+               if (i == "temperature") {        
+                load("~/thesis/data/Experiments/fit_T50.Rdata")
                 correction <- c()
                 for (k in 1:length(v$Value)) {
                     if (v$Value[k] < fit$coefficients[1]) { 
                         correction[k] <- c(v$Value[k])
-                    } else {
-                        x <- suppressWarnings(predict(fit, 
-                                            data.frame(pipedata = v$Value[k])))
-                        correction[k] <- x
-                    }}}
+                   } else {
+                      x <- suppressWarnings(predict(fit, 
+                           data.frame(pipedata = v$Value[k])))
+                      correction[k] <- x
+                   }}}
                     if (i == "humidity") {      
-                    load("~/thesis/data/Experiments/fit.H.Rdata")
+                    load("~/thesis/data/Experiments/fit_H50.Rdata")
                     correction <- c()
-                        for (k in 1:length(v$Value)) {
-                            if (v$Value[k] < fit$coefficients[1]) { 
-                                correction[k] <- c(v$Value[k])
-                            } else {
-                                x <- suppressWarnings(predict(fit, 
-                                data.frame(pipedata = v$Value[k])))
-                                correction[k] <- x
+                    for (k in 1:length(v$Value)) {
+                         if (v$Value[k] < fit$coefficients[1]) { 
+                         correction[k] <- c(v$Value[k])
+                          } else {
+                          x <- suppressWarnings(predict(fit, 
+                               data.frame(pipedata = v$Value[k])))
+                               correction[k] <- x
                     }}}       
                 
                 v$Value       <- correction

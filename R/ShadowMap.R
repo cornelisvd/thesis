@@ -31,7 +31,7 @@
         
     ##
         dem     = raster(dem_name) 
-        kml     = readOGR(kml_name, kml_name) 
+        kml     = readOGR(kml_name, "Aquiares2") 
         
     ## 
         lat              <- (bbox(kml)[2,1] + bbox(kml)[2,2]) / 2

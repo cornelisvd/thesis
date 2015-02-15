@@ -27,10 +27,10 @@ load("value.Rdata")
                           interval = TRUE)
         stfdf.p <- krigeST(values ~ 1, st, prd.grd, v) 
         create.rast(obj = stfdf.p)
-        pred.LOO[[i]] <- brickST
+        pred.LOO[[i]] <- b
         }
     pred.LOO[[1]] <- NULL
-    save(pred.LOO, file = "pred.LOO.mean.Rdata")
+    save(pred.LOO, file = "pred.LOO.max.Rdata")
 
 ## Extract the predicted value of the left-out sensor from the relevant object. 
     pred.df <- c() 
@@ -50,5 +50,22 @@ for (i in 1:ncol(d)){
     o <- mean(sort(d[,i])[2])
     dist <- c(dist,o)
 }
-xl <- as.data.frame(l)
+
+x <- as.data.frame(dist)
+x4 <- as.matrix(abs(pred.res))
+x4 <- colMeans(x4)
+x5 <- extract(dem, pts)
+
+x <- cbind(x, x2, x3, x4, x5)
+distres <- x
+
+library(ggplot2)
+ggplot(distres, aes(x=distres[,1], y=abs(distres[,2]))) + geom_point(colour="black", size = 5, alpha = 0.35) +
+    geom_point(aes(y=abs(distres[,3])), colour = "blue", size = 5, alpha = 0.35) +
+    geom_point(aes(y=abs(distres[,4])), colour = "red", size = 5, alpha = 0.35) +
+    theme_set(theme_grey(base_size = 18)) + xlab("Distance to closest two sensors (meters)") + ylab("Residuals (degrees Celsius)")
    
+ggplot(distres, aes(x=distres[,5], y=abs(distres[,2]))) + geom_point(colour="black", size = 5, alpha = 0.35) +
+    geom_point(aes(y=abs(distres[,3])), colour = "blue", size = 5, alpha = 0.35) +
+    geom_point(aes(y=abs(distres[,4])), colour = "red", size = 5, alpha = 0.35) +
+    theme_set(theme_grey(base_size = 18)) + xlab("Altitude of sensor (meters)") + ylab("Residuals (degrees Celsius)")

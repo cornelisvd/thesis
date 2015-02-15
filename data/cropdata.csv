@@ -1,0 +1,26 @@
+ID,CROP,LATIN,TABMN,TABMX,TOBMN,TOPMX,RABMN,RABMX,ROPMN,ROPMX,ALTMN,ALTMX
+1,Coffee arabica,Coffea arabica,10,34,14,28,750,4200,1400,2300,NA,2800
+2,Coffee robusta,Coffea canephora,12,36,20,30,900,4000,1700,3000,NA,1300
+3,Common bean,Phaseolus vulgaris,7,32,16,25,300,4300,500,2000,NA,3000
+4,Purple bean,Phaseolus atropurpureus,13,36,21,32,200,2800,650,1800,NA,2900
+5,Phasey bean,Phaseolus lathyroides,15,35,25,30,400,3500,800,2000,NA,2000
+6,Runner bean,Phaseolus multiflorus,5,30,12,26,400,2600,800,1500,1400,1800
+7,Lima bean,Phaseolus inamoenus,13,34,16,28,400,4300,900,1500,NA,2800
+8,Rice (paddy),Oryza sativa,10,36,20,30,1000,4000,1500,2000,NA,2500
+9,Cassava,Manihot esculenta,10,35,20,29,500,5000,1000,1500,NA,2000
+10,Zucchini,Cucurbita moschata,10,40,20,30,300,2800,600,1600,NA,2400
+11,Maize,Zea mays,10,47,18,33,400,1800,600,1200,NA,4000
+12,Yams,Dioscorea alata,15,40,20,32,700,8000,1200,4000,NA,2500
+13,Potatoes,Solanum tuberosum,7,30,15,25,250,2000,500,800,NA,2800
+14,Sugar cane,Saccharum officinarum,15,41,24,37,1000,5000,1500,2000,NA,1600
+15,Grapefruits,Citrus paradisi,13,42,18,32,300,4000,1500,2300,NA,800
+16,Lemons,Citrus limon,12,36,15,28,300,4000,1000,2300,NA,500
+17,Oranges,Citrus sinensis,13,38,20,30,450,2700,1200,2000,NA,2100
+18,Pineapples,Ananas comosus,10,36,21,30,550,3500,800,2500,NA,1800
+19,Bananas,Musa sapientum,13,38,22,32,2000,3500,2400,2700,NA,2400
+20,Guayaba,Acca sellowiana,12,28,18,21,600,2000,750,1500,NA,1000
+21,Avocados,Persea americana,10,45,14,40,300,2500,500,2000,NA,2800
+22,Mangoes,Mangifera indica,8,48,24,30,300,2600,600,1500,NA,1200
+23,Cocoa,Theobroma cacao,10,38,21,32,900,7600,1200,3000,NA,900
+24,Papaya,Carica papaya,12,44,21,30,1000,3000,1500,2500,NA,2100
+25,Coconuts,Cocos nucifera,14,38,22,34,650,4000,1200,2400,NA,1500
