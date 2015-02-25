@@ -31,6 +31,7 @@
         b   <- seq(from = 1, to = 1 + n*v, by = v)
         e   <- seq(from = v, to = n*v, by = v)
         
+              
         ## Looping the STFDF layers in a list. If this is done directly in a 
         ## stack or brick, it always results in a RasterStack for some reason.
         for (l in 1:n) {
