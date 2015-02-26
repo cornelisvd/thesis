@@ -1,14 +1,10 @@
-ST_pred <- c()
-for (i in 1:80){
-    krT <- c()
-    for (d in 1:7){
-        control <- stack()
+control <- brick()
+for (d in 1:7){
         e <- d*24
         b <- e-23
         temp <- temp.cor[b:e,]
-        st <- stConstruct(temp, space = list(temperature = (2:ncol(temp))[-i]), 
-                          time = temp[, 1], SpatialObj = pts[-i], interval = TRUE)
-        st@data$altitude <- rep(dem[-i], 24)
+        st <- stConstruct(temp, space = list(temperature = 2:ncol(temp)), 
+                          time = temp[,1], SpatialObj = pts, interval = TRUE)
         tgrd <- seq(min(index(st)), max(index(st)), length = nrow(temp))
         prd.grd = STF(predgrd, tgrd)
         separableModel <- vgmST("separable",
@@ -20,21 +16,18 @@ for (i in 1:80){
                                           method="L-BFGS-B",
                                           lower=c(10,0,0.01,0,1),
                                           upper=c(500,1,20,1,200))
-        stfdf <- krigeST(values ~ log(altitude), st, prd.grd, separableModel) 
+        stfdf <- krigeST(values ~ 1, st, prd.grd, separableModel) 
         r <- raster(stfdf@sp[1])
         l <- length(stfdf@sp[1])
         for (n in 1:length(stfdf@time)){
             r@data@values[!is.na(r@data@values)] <- 
                 stfdf@data$var1.pred[((n*l)-(l-1)):(n*l)]
             control <- addLayer(control, r)
-        }
-        for (p in 1:nlayers(control)) {
-            t <- extract(control[[p]], pts[i])
-            krT <- rbind(krT, t)
-        }
     }
-    ST_pred <- cbind(ST_pred, krT)
+   
 }
+
+
 save(ST_pred, file="STKE80_allprd.Rdata")
 
 ST_pred <- c()

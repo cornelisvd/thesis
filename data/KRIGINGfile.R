@@ -173,7 +173,7 @@ LOO  <- c()
 RMSE <- c()
 allact <- c()
 allprd <- c()
-points <- seq(1:40)
+points <- seq(1:80)
 #c(67:74)
 ptm <- proc.time()
 for (d in 1:day){
@@ -283,22 +283,22 @@ for (d in 1:day){
         #if (i <= 5 | i >= 18){
         g <- gstat(NULL, id="Temperature", form=temperature~1, 
                    data=data.s)
-        g <- gstat(g, id="Altitude", form=altitude~1, 
+        g <- gstat(g, id="Altitude", form=log(altitude)~1, 
                    data=data.s)
         #    g <- gstat(g, id="Slope", form=slope~1, 
         #               data=data.s)
         #    g <- gstat(g, id="Aspect", form=aspect~1, 
         #               data=data.s)
         #} else {
-            predgrd$radiation <- rad[[i]]
-            radiation <- solx[i,]
-            data.s$radiation <- radiation[points]
+        #    predgrd$radiation <- rad[[i]]
+        #    radiation <- solx[i,]
+        #    data.s$radiation <- radiation[points]
         #    g <- gstat(NULL, id="Temperature", form=temperature~1, 
         #                              data=data.s)
         #    g <- gstat(g, id="Altitude", form=altitude~1, 
         #                              data=data.s)
-            g <- gstat(g, id="Radiation", form=radiation~1, 
-               data=data.s)
+        #    g <- gstat(g, id="Radiation", form=radiation~1, 
+        #      data=data.s)
         #    g <- gstat(g, id="Slope", form=slope~1, 
         #           data=data.s)
         #}
@@ -324,9 +324,9 @@ for (d in 1:day){
 TempBrick <- brick(TempList)
 proc.time() - ptm
 
-save(TempBrick, file="CKR40_TempBrick.Rdata")
-save(allact, file="CKR40_allact.Rdata")
-save(allprd, file="CKR40_allprd.Rdata")
+save(TempBrick, file="CK80_TempBrick.Rdata")
+save(allact, file="CKR80_allact.Rdata")
+save(allprd, file="CKR80_allprd.Rdata")
 
 day <- 7
 TempBrick <- brick()
@@ -645,22 +645,23 @@ for (d in 1:day){
 TempBrick <- brick(TempList)
 proc.time() - ptm
 
-save(TempBrick, file="CKR8_TempBrick.Rdata")
-save(allact, file="CKR8_allact.Rdata")
-save(allprd, file="CKR8_allprd.Rdata")
+save(TempBrick, file="CKR80_TempBrick.Rdata")
+save(allact, file="CKS80_allact.Rdata")
+save(allprd, file="CKS80_allprd.Rdata")
 
-load("DK80_allprd.Rdata")
-load("DK80_allact.Rdata")
+load("CKR8_TempBrick.Rdata")
+load("CKR8_allprd.Rdata")
+load("CKR8_allact.Rdata")
 allprd <- matrix(allprd, ncol=80)
 allact <- matrix(allact, ncol=80)
 allres <- allact - allprd
 
 RMSE <- sqrt(mean(allres^2, na.rm=TRUE))
 
-#load("STKR8_allprd.Rdata")
-#allprd <- ST_pred
-#allact <- as.matrix(temp.cor[1:168,2:9])
-#allres <- allact - ST_pred
+load("STKR8_allprd.Rdata")
+allprd <- ST_pred
+allact <- as.matrix(temp.cor[1:168,2:9])
+allres <- allact - ST_pred
 
 RMSEs <- c()
 MAEs <- c()
