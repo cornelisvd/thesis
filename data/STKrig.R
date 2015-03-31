@@ -3,8 +3,12 @@ for (d in 1:7){
         e <- d*24
         b <- e-23
         temp <- temp.cor[b:e,]
-        st <- stConstruct(temp, space = list(temperature = 2:ncol(temp)), 
-                          time = temp[,1], SpatialObj = pts, interval = TRUE)
+        st <- stConstruct(temp, space = list(temperature = 2:9), 
+                          time = temp[,1], SpatialObj = pts[1:8], interval = TRUE)
+        st@data$altitude <- rep(dem[1:8], 24)
+        st@data$slope <- rep(slp[1:8], 24)
+        st@data$aspect <- rep(asp[1:8], 24)
+        st@data$radiation <- as.vector(solx[1:8])
         tgrd <- seq(min(index(st)), max(index(st)), length = nrow(temp))
         prd.grd = STF(predgrd, tgrd)
         separableModel <- vgmST("separable",
@@ -16,7 +20,8 @@ for (d in 1:7){
                                           method="L-BFGS-B",
                                           lower=c(10,0,0.01,0,1),
                                           upper=c(500,1,20,1,200))
-        stfdf <- krigeST(values ~ 1, st, prd.grd, separableModel) 
+        stfdf <- krigeST(values ~ log(altitude) + radiation + log(slope) +
+                             log(aspect), st, prd.grd, separableModel) 
         r <- raster(stfdf@sp[1])
         l <- length(stfdf@sp[1])
         for (n in 1:length(stfdf@time)){
@@ -26,6 +31,7 @@ for (d in 1:7){
     }
    
 }
+save(control, file="STKD8_TempBrick.Rdata")
 
 
 save(ST_pred, file="STKE80_allprd.Rdata")

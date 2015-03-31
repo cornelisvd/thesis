@@ -119,36 +119,36 @@ for (d in 1:day){
         #x <- raster(k.2@predicted)
         
         ## CO-KRIGING
-        #if (i <= 5 | i >= 18){
+        if (i <= 5 | i >= 18){
             g <- gstat(NULL, id="Temperature", form=temperature~1, 
                        data=data.s)
             g <- gstat(g, id="Altitude", form=altitude~1, 
                        data=data.s)
-        #    g <- gstat(g, id="Slope", form=slope~1, 
-        #               data=data.s)
-        #    g <- gstat(g, id="Aspect", form=aspect~1, 
-        #               data=data.s)
-        #} else {
+            g <- gstat(g, id="Slope", form=slope~1, 
+                       data=data.s)
+            g <- gstat(g, id="Aspect", form=aspect~1, 
+                       data=data.s)
+        } else {
             predgrd$radiation <- rad[[i]]
             radiation <- solx[i,]
             data.s$radiation <- radiation[points]
-        #    g <- gstat(NULL, id="Temperature", form=temperature~1, 
-        #                              data=data.s)
-        #    g <- gstat(g, id="Altitude", form=altitude~1, 
-        #                              data=data.s)
+            g <- gstat(NULL, id="Temperature", form=temperature~1, 
+                                      data=data.s)
+            g <- gstat(g, id="Altitude", form=altitude~1, 
+                                      data=data.s)
             g <- gstat(g, id="Radiation", form=radiation~1, 
                data=data.s)
-        #    g <- gstat(g, id="Slope", form=slope~1, 
-        #           data=data.s)
-        #}
+            g <- gstat(g, id="Slope", form=slope~1, 
+                   data=data.s)
+        }
         vg <- gstat::variogram(g)
         vg.fit <- fit.lmc(vg, g, vgm(1, "Exp", 250))
         c.k <- predict(vg.fit, predgrd)
-        pe1 <- gstat.cv(vg.fit)
-        act <- pe1@data$observed
-        prd <- pe1@data$Temperature.pred
-        allact <- c(allact, act)
-        allprd <- c(allprd, prd)
+        #pe1 <- gstat.cv(vg.fit)
+        #act <- pe1@data$observed
+        #prd <- pe1@data$Temperature.pred
+        #allact <- c(allact, act)
+        #allprd <- c(allprd, prd)
         x <- raster(c.k)
         x <- x$temperature.pred
         #LOO <- c(LOO, sqrt(mean(gstat.cv(g, all.residual=TRUE, verbose=FALSE)^2)))
