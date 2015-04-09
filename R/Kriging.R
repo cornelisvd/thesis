@@ -20,6 +20,7 @@ load("kml.Rdata")
 load("height.Rdata")
 vegetation  <- raster("/home/kees/thesis/data/GIS/LAI_new_UTM17N_2m_geotif.tif") 
 ws <- readOGR("Watershed.kml", "Watershed")
+aq <- readOGR("Aquiares.kml", "Aquiares")
 
 solx <- c()
 for (l in 1:length(sun@data@names)){

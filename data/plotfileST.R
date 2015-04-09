@@ -15,9 +15,10 @@ x2 <- mask(x2, kml)
 plot(x2, col=cols, zlim=c(18, 22))
 plot(kml, add=TRUE)
 
+
 BrickU <- brick()
 for (h in 1:24){
-    BrickU <- addLayer(BrickU, calc(BrickUK[[seq(h, nlayers(BrickUK), 24)]], mean))
+    BrickU <- addLayer(BrickU, calc(TempBrick[[seq(h, nlayers(TempBrick), 24)]], mean))
 }
 
 load("STKD8_TempBrick.Rdata")

@@ -649,7 +649,7 @@ save(TempBrick, file="CKR80_TempBrick.Rdata")
 save(allact, file="CKS80_allact.Rdata")
 save(allprd, file="CKS80_allprd.Rdata")
 
-load("CKR8_TempBrick.Rdata")
+load("OK80_TempBrick.Rdata")
 load("CKR8_allprd.Rdata")
 load("CKR8_allact.Rdata")
 allprd <- matrix(allprd, ncol=80)
@@ -734,3 +734,27 @@ for (i in 1:40)){
 }
 
 save(ST_pred, file="STKE40_allprd.Rdata")
+
+
+load("UK20_TempBrick.Rdata")
+x <- calc(TempBrick, mean)
+x <- BrickU
+#x <- TempBrick[[11]]
+x <- disaggregate(x, fact=10, method="bilinear")
+names(x) <- c("11AM", "12AM", "1PM", "2PM", "3PM", "4PM")
+cols <- colorRampPalette(c("red", "orange", "yellow", "black"),
+                                space = "rgb")
+par(mar=c(0,0,0,0))
+x <- mask(x, kml)
+#legend.only=FALSE,
+plot(x[[13:24]], main="", nc=4, legend=TRUE, col=rev(cols(1000)),
+     axes=FALSE, box=FALSE, zlim=c(18.5,21.5),
+     legend.width=0.72, legend.shrink=0.7,
+     legend.args=list(text='degrees Celsius', side=3, font=8, line=2.5, cex=1.2))
+plot(x[[1]], legend.only=TRUE, col=rev(cols(1000)),
+     axes=FALSE, box=FALSE, zlim=c(15.4,28),
+     legend.width=0.72, legend.shrink=1,
+     legend.args=list(text='degrees Celsius', side=3, font=8, line=2.5, cex=1.2))
+plot(kml, add=TRUE)
+#plot(kml, add=TRUE)
+
